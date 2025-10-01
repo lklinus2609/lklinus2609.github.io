@@ -1,115 +1,142 @@
 /*
-  COMPLETE CUSTOM DESIGN - Zero Template Remnants
-  Minimal Modern Portfolio
+  LINUS KIM PORTFOLIO - ORIGINAL CLEAN LIGHT DESIGN
+  Warm, Clean, Full of Life & Personality
 */
 
 :root {
-  --bg-dark: #0f0f0f;
-  --bg-card: #1a1a1a;
-  --bg-elevated: #242424;
-  --text-primary: #ffffff;
-  --text-secondary: #b0b0b0;
-  --text-tertiary: #707070;
-  --accent: #FFB800;
-  --accent-hover: #ffc933;
+  /* Warm Light Color System */
+  --cream-base: #FEFDFB;
+  --white-pure: #FFFFFF;
+  --surface-subtle: #F9F8F6;
 
-  --space-xs: 8px;
-  --space-sm: 16px;
-  --space-md: 24px;
-  --space-lg: 32px;
-  --space-xl: 48px;
-  --space-2xl: 64px;
-  --space-3xl: 96px;
-  --space-4xl: 128px;
+  --text-primary: #2A2A2A;
+  --text-secondary: #6B6B6B;
+  --text-tertiary: #999999;
+
+  --yellow-warm: #FFB800;
+  --yellow-deep: #E6A500;
+  --yellow-light: #FFF9E6;
+  --yellow-glow: rgba(255, 184, 0, 0.15);
+
+  --grey-warm: #8B8681;
+  --border-subtle: #E8E6E3;
+  --border-medium: #D4D2CF;
+
+  /* Shadows - Soft & Natural */
+  --shadow-xs: 0 1px 3px rgba(42, 42, 42, 0.05);
+  --shadow-sm: 0 2px 8px rgba(42, 42, 42, 0.08);
+  --shadow-md: 0 4px 16px rgba(42, 42, 42, 0.1);
+  --shadow-lg: 0 8px 32px rgba(42, 42, 42, 0.12);
+  --shadow-yellow: 0 4px 20px var(--yellow-glow);
+
+  /* Spacing System */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-8: 48px;
+  --space-10: 64px;
+  --space-12: 80px;
+  --space-16: 96px;
+  --space-20: 128px;
+
+  /* Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Transitions */
+  --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --duration-fast: 200ms;
+  --duration-base: 300ms;
+  --duration-slow: 400ms;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* ========== COMPLETE RESET ========== */
+/* ==================== RESET ==================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Kill ALL template styles */
-body,
-#wrapper,
-.fade-in,
-#intro,
-#header,
-#nav,
-#main,
-.post,
-.posts,
-article,
-section,
-footer,
-.image,
-.button,
-.actions {
-  all: unset;
-  display: block;
-}
-
-/* ========== BASE ========== */
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  font-size: 16px !important;
-  line-height: 1.6 !important;
+  font-family: var(--font-primary) !important;
+  font-size: 18px !important;
+  line-height: 1.7 !important;
   color: var(--text-primary) !important;
-  background: var(--bg-dark) !important;
+  background: var(--cream-base) !important;
   overflow-x: hidden;
 }
 
-/* Force remove template backgrounds */
-body::before,
-body::after,
-#wrapper::before,
-#wrapper::after {
-  display: none !important;
-  content: none !important;
-}
-
 #wrapper {
-  background: var(--bg-dark) !important;
+  background: var(--cream-base) !important;
   min-height: 100vh;
 }
 
-/* ========== TYPOGRAPHY ========== */
+/* Kill template artifacts */
+body::after, #wrapper::before, #wrapper::after {
+  display: none !important;
+}
+
+/* ==================== TYPOGRAPHY ==================== */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', sans-serif !important;
-  font-weight: 700 !important;
+  font-family: var(--font-primary) !important;
   color: var(--text-primary) !important;
+  font-weight: 700 !important;
   line-height: 1.2 !important;
   margin: 0 !important;
 }
 
-h1 { font-size: 64px !important; letter-spacing: -0.03em !important; }
-h2 { font-size: 40px !important; letter-spacing: -0.02em !important; }
-h3 { font-size: 28px !important; }
-h4 { font-size: 20px !important; }
+h1 {
+  font-size: 72px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+}
+
+h2 {
+  font-size: 48px !important;
+  letter-spacing: -0.01em !important;
+}
+
+h3 {
+  font-size: 28px !important;
+  font-weight: 600 !important;
+}
+
+h4 {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+}
 
 p {
-  font-size: 16px !important;
+  font-size: 18px !important;
   line-height: 1.7 !important;
   color: var(--text-secondary) !important;
   margin: 0 !important;
 }
 
+strong {
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+}
+
 a {
-  color: var(--accent) !important;
+  color: var(--yellow-warm) !important;
   text-decoration: none !important;
-  transition: color 0.2s ease !important;
+  transition: color var(--duration-fast) var(--ease-smooth) !important;
+  position: relative !important;
 }
 
 a:hover {
-  color: var(--accent-hover) !important;
+  color: var(--yellow-deep) !important;
 }
 
 ul, ol {
@@ -123,28 +150,24 @@ li {
   line-height: 1.7 !important;
 }
 
-strong {
-  font-weight: 600 !important;
-  color: var(--text-primary) !important;
-}
-
-/* ========== NAVIGATION ========== */
+/* ==================== NAVIGATION ==================== */
 #nav {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
   z-index: 1000 !important;
-  background: rgba(15, 15, 15, 0.8) !important;
-  backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid rgba(255, 184, 0, 0.15) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid var(--border-subtle) !important;
   padding: 20px 0 !important;
+  transition: all var(--duration-base) var(--ease-smooth) !important;
 }
 
 #nav .links {
   display: flex !important;
   justify-content: center !important;
-  gap: 48px !important;
+  gap: var(--space-10) !important;
   align-items: center !important;
 }
 
@@ -154,13 +177,13 @@ strong {
 }
 
 #nav .links a {
-  font-size: 14px !important;
+  font-size: 15px !important;
   font-weight: 500 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.1em !important;
+  letter-spacing: 0.05em !important;
   color: var(--text-secondary) !important;
   position: relative !important;
-  padding-bottom: 4px !important;
+  padding-bottom: 6px !important;
 }
 
 #nav .links a::after {
@@ -170,8 +193,8 @@ strong {
   left: 0 !important;
   width: 0 !important;
   height: 2px !important;
-  background: var(--accent) !important;
-  transition: width 0.3s ease !important;
+  background: var(--yellow-warm) !important;
+  transition: width var(--duration-base) var(--ease-smooth) !important;
 }
 
 #nav .links a:hover::after,
@@ -181,297 +204,325 @@ strong {
 
 #nav .links a:hover,
 #nav .links li.active a {
-  color: var(--accent) !important;
+  color: var(--yellow-warm) !important;
 }
 
 #nav .icons {
   position: absolute !important;
-  right: 48px !important;
+  right: var(--space-8) !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
   display: flex !important;
-  gap: 24px !important;
+  gap: var(--space-5) !important;
 }
 
 #nav .icons a {
-  font-size: 18px !important;
+  font-size: 20px !important;
   color: var(--text-secondary) !important;
+  transition: all var(--duration-fast) var(--ease-smooth) !important;
 }
 
 #nav .icons a:hover {
-  color: var(--accent) !important;
+  color: var(--yellow-warm) !important;
+  transform: translateY(-2px) !important;
 }
 
-/* ========== HERO ========== */
+/* ==================== HERO SECTION ==================== */
 #intro {
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
-  min-height: 70vh !important;
+  min-height: 60vh !important;
   text-align: center !important;
-  padding: 120px 48px 80px !important;
+  padding: 140px var(--space-8) var(--space-16) !important;
   position: relative !important;
+  background: linear-gradient(180deg, var(--cream-base) 0%, var(--surface-subtle) 100%) !important;
 }
 
 #intro h1 {
   font-size: 72px !important;
   font-weight: 800 !important;
-  margin-bottom: 16px !important;
-  background: linear-gradient(135deg, #ffffff 0%, #b0b0b0 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
+  margin-bottom: var(--space-4) !important;
+  color: var(--text-primary) !important;
 }
 
 #intro p {
   font-size: 20px !important;
   color: var(--text-secondary) !important;
   max-width: 700px !important;
-  margin-top: 8px !important;
+  margin: var(--space-3) auto !important;
 }
 
-#intro .actions {
-  margin-top: 32px !important;
-  opacity: 0.6 !important;
+#intro .button {
+  margin-top: var(--space-8) !important;
 }
 
-/* ========== MAIN CONTENT ========== */
+/* ==================== MAIN CONTENT ==================== */
 #main {
-  background: var(--bg-dark) !important;
+  background: var(--cream-base) !important;
   padding-top: 0 !important;
-  min-height: 100vh !important;
 }
 
-/* Container */
 .container {
   max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 0 48px !important;
+  padding: 0 var(--space-8) !important;
 }
 
-/* Sections */
 section {
-  padding: var(--space-4xl) 0 !important;
+  padding: var(--space-20) 0 !important;
   background: transparent !important;
 }
 
 .section-title {
   font-size: 48px !important;
   text-align: center !important;
-  margin-bottom: var(--space-3xl) !important;
+  margin-bottom: var(--space-16) !important;
   position: relative !important;
   display: inline-block !important;
   width: 100% !important;
+  color: var(--text-primary) !important;
 }
 
 .section-title::after {
   content: '' !important;
   position: absolute !important;
-  bottom: -16px !important;
+  bottom: -var(--space-4) !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  width: 80px !important;
+  width: 60px !important;
   height: 3px !important;
-  background: var(--accent) !important;
+  background: var(--yellow-warm) !important;
   border-radius: 2px !important;
 }
 
-/* ========== CARDS ========== */
+/* ==================== CARDS ==================== */
 .card {
-  background: var(--bg-card) !important;
-  border-radius: 16px !important;
-  padding: 40px !important;
-  transition: all 0.3s ease !important;
+  background: var(--white-pure) !important;
+  border-radius: 20px !important;
+  padding: var(--space-10) !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: all var(--duration-base) var(--ease-smooth) !important;
   border: 1px solid transparent !important;
   position: relative !important;
-  overflow: hidden !important;
-}
-
-.card::before {
-  content: '' !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  height: 1px !important;
-  background: linear-gradient(90deg, transparent, rgba(255,184,0,0.3), transparent) !important;
-  opacity: 0 !important;
-  transition: opacity 0.3s ease !important;
 }
 
 .card:hover {
-  transform: translateY(-8px) !important;
-  border-color: rgba(255, 184, 0, 0.3) !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
-}
-
-.card:hover::before {
-  opacity: 1 !important;
+  transform: translateY(-6px) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border-color: var(--yellow-light) !important;
 }
 
 .card h3, .card h4 {
   color: var(--text-primary) !important;
-  margin-bottom: 16px !important;
+  margin-bottom: var(--space-4) !important;
 }
 
 .card p {
   color: var(--text-secondary) !important;
-  margin-bottom: 16px !important;
+  margin-bottom: var(--space-4) !important;
 }
 
-/* ========== GRID ========== */
+/* Featured Card Variant */
+.featured-card {
+  border-left: 4px solid var(--yellow-warm) !important;
+  background: linear-gradient(135deg, var(--white-pure) 0%, var(--yellow-light) 100%) !important;
+}
+
+/* ==================== GRID SYSTEM ==================== */
 .grid {
   display: grid !important;
-  gap: 32px !important;
+  gap: var(--space-8) !important;
 }
 
-.grid-2 { grid-template-columns: repeat(2, 1fr) !important; }
-.grid-3 { grid-template-columns: repeat(3, 1fr) !important; }
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
 
-/* ========== TAGS ========== */
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+/* ==================== TAGS ==================== */
 .tag {
   display: inline-block !important;
-  padding: 6px 16px !important;
-  background: rgba(255, 184, 0, 0.1) !important;
-  color: var(--accent) !important;
+  padding: var(--space-2) var(--space-4) !important;
+  background: var(--yellow-light) !important;
+  color: var(--yellow-deep) !important;
   border-radius: 20px !important;
-  font-size: 12px !important;
-  font-weight: 500 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  margin: 4px !important;
-  transition: all 0.2s ease !important;
-  border: 1px solid rgba(255, 184, 0, 0.2) !important;
+  letter-spacing: 0.03em !important;
+  margin: var(--space-1) !important;
+  transition: all var(--duration-fast) var(--ease-smooth) !important;
+  border: 1px solid transparent !important;
 }
 
 .tag:hover {
-  background: var(--accent) !important;
-  color: var(--bg-dark) !important;
+  background: var(--yellow-warm) !important;
+  color: var(--white-pure) !important;
   transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-yellow) !important;
 }
 
-/* ========== BUTTONS ========== */
+/* ==================== BUTTONS ==================== */
 .button {
   display: inline-block !important;
-  padding: 14px 32px !important;
-  background: var(--accent) !important;
-  color: var(--bg-dark) !important;
+  padding: 16px 40px !important;
+  background: var(--yellow-warm) !important;
+  color: var(--text-primary) !important;
   font-weight: 600 !important;
-  font-size: 14px !important;
+  font-size: 15px !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.1em !important;
-  border-radius: 8px !important;
-  transition: all 0.2s ease !important;
-  border: none !important;
+  letter-spacing: 0.05em !important;
+  border-radius: 12px !important;
+  transition: all var(--duration-fast) var(--ease-smooth) !important;
+  border: 2px solid var(--yellow-warm) !important;
   cursor: pointer !important;
+  box-shadow: var(--shadow-xs) !important;
 }
 
 .button:hover {
-  background: var(--accent-hover) !important;
+  background: var(--yellow-deep) !important;
+  border-color: var(--yellow-deep) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 10px 30px rgba(255, 184, 0, 0.3) !important;
-  color: var(--bg-dark) !important;
+  box-shadow: var(--shadow-yellow) !important;
+  color: var(--text-primary) !important;
 }
 
-/* ========== FOOTER ========== */
+.button.secondary {
+  background: transparent !important;
+  color: var(--yellow-warm) !important;
+}
+
+.button.secondary:hover {
+  background: var(--yellow-warm) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ==================== FOOTER ==================== */
 #footer {
-  background: #0a0a0a !important;
-  border-top: 1px solid rgba(255, 184, 0, 0.15) !important;
-  padding: var(--space-3xl) 0 !important;
+  background: var(--surface-subtle) !important;
+  border-top: 1px solid var(--border-subtle) !important;
+  padding: var(--space-16) 0 !important;
 }
 
 #footer h3 {
-  color: var(--accent) !important;
+  color: var(--text-primary) !important;
   font-size: 16px !important;
-  margin-bottom: 16px !important;
+  margin-bottom: var(--space-4) !important;
+  font-weight: 600 !important;
 }
 
 #footer p, #footer a {
   color: var(--text-tertiary) !important;
-  font-size: 14px !important;
+  font-size: 15px !important;
 }
 
 #footer a:hover {
-  color: var(--accent) !important;
+  color: var(--yellow-warm) !important;
 }
 
 #copyright {
-  background: #000000 !important;
-  padding: 24px 0 !important;
+  background: var(--cream-base) !important;
+  padding: var(--space-6) 0 !important;
   text-align: center !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-top: 1px solid var(--border-subtle) !important;
 }
 
 #copyright ul {
   display: flex !important;
   justify-content: center !important;
-  gap: 32px !important;
+  gap: var(--space-8) !important;
 }
 
 #copyright li {
   color: var(--text-tertiary) !important;
-  font-size: 12px !important;
+  font-size: 14px !important;
 }
 
-/* ========== UTILITIES ========== */
+/* ==================== UTILITIES ==================== */
 .text-center { text-align: center !important; }
-.text-yellow { color: var(--accent) !important; }
+.text-yellow { color: var(--yellow-warm) !important; }
 
-.mt-xs { margin-top: var(--space-xs) !important; }
-.mt-sm { margin-top: var(--space-sm) !important; }
-.mt-md { margin-top: var(--space-md) !important; }
-.mt-lg { margin-top: var(--space-lg) !important; }
-.mt-xl { margin-top: var(--space-xl) !important; }
-.mt-2xl { margin-top: var(--space-2xl) !important; }
+.mt-1 { margin-top: var(--space-1) !important; }
+.mt-2 { margin-top: var(--space-2) !important; }
+.mt-3 { margin-top: var(--space-3) !important; }
+.mt-4 { margin-top: var(--space-4) !important; }
+.mt-5 { margin-top: var(--space-5) !important; }
+.mt-6 { margin-top: var(--space-6) !important; }
+.mt-8 { margin-top: var(--space-8) !important; }
+.mt-10 { margin-top: var(--space-10) !important; }
 
-.mb-xs { margin-bottom: var(--space-xs) !important; }
-.mb-sm { margin-bottom: var(--space-sm) !important; }
-.mb-md { margin-bottom: var(--space-md) !important; }
-.mb-lg { margin-bottom: var(--space-lg) !important; }
-.mb-xl { margin-bottom: var(--space-xl) !important; }
-.mb-2xl { margin-bottom: var(--space-2xl) !important; }
+.mb-1 { margin-bottom: var(--space-1) !important; }
+.mb-2 { margin-bottom: var(--space-2) !important; }
+.mb-3 { margin-bottom: var(--space-3) !important; }
+.mb-4 { margin-bottom: var(--space-4) !important; }
+.mb-5 { margin-bottom: var(--space-5) !important; }
+.mb-6 { margin-bottom: var(--space-6) !important; }
+.mb-8 { margin-bottom: var(--space-8) !important; }
+.mb-10 { margin-bottom: var(--space-10) !important; }
 
-/* ========== RESPONSIVE ========== */
+/* ==================== RESPONSIVE ==================== */
 @media (max-width: 1024px) {
-  .grid-3 { grid-template-columns: repeat(2, 1fr) !important; }
-  #nav .icons { right: 24px !important; }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
 }
 
 @media (max-width: 768px) {
   h1 { font-size: 48px !important; }
-  h2 { font-size: 32px !important; }
+  h2 { font-size: 36px !important; }
+  h3 { font-size: 24px !important; }
 
-  #intro h1 { font-size: 56px !important; }
+  #intro h1 { font-size: 52px !important; }
+  #intro { min-height: 50vh !important; }
 
-  .grid-2, .grid-3 { grid-template-columns: 1fr !important; }
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr !important;
+  }
 
-  .container { padding: 0 24px !important; }
+  .container {
+    padding: 0 var(--space-5) !important;
+  }
 
-  #nav .links { gap: 24px !important; }
+  section {
+    padding: var(--space-12) 0 !important;
+  }
+
+  #nav .links {
+    gap: var(--space-5) !important;
+  }
+
   #nav .icons {
     position: static !important;
     transform: none !important;
     justify-content: center !important;
-    margin-top: 16px !important;
+    margin-top: var(--space-4) !important;
   }
-
-  section { padding: var(--space-2xl) 0 !important; }
 }
 
 @media (max-width: 480px) {
   h1 { font-size: 36px !important; }
   #intro h1 { font-size: 42px !important; }
 
-  .card { padding: 24px !important; }
-  .container { padding: 0 16px !important; }
+  .card {
+    padding: var(--space-6) !important;
+  }
+
+  .button {
+    padding: 14px 32px !important;
+    font-size: 14px !important;
+  }
 }
 
-/* ========== ANIMATIONS ========== */
+/* ==================== ANIMATIONS ==================== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -480,11 +531,11 @@ section {
 }
 
 .fade-in-up {
-  animation: fadeInUp 0.8s ease-out !important;
+  animation: fadeInUp 0.6s var(--ease-smooth) !important;
 }
 
 .grid > * {
-  animation: fadeInUp 0.8s ease-out !important;
+  animation: fadeInUp 0.6s var(--ease-smooth) !important;
 }
 
 .grid > *:nth-child(1) { animation-delay: 0.1s !important; }
@@ -494,24 +545,10 @@ section {
 .grid > *:nth-child(5) { animation-delay: 0.5s !important; }
 .grid > *:nth-child(6) { animation-delay: 0.6s !important; }
 
-/* ========== FEATURED HIGHLIGHT ========== */
-.featured-card {
-  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%) !important;
-  border-left: 4px solid var(--accent) !important;
-  position: relative !important;
-}
+/* ==================== SPECIAL EFFECTS ==================== */
+/* Removed grain texture - too dark */
 
-.featured-card::after {
-  content: '' !important;
-  position: absolute !important;
-  top: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  width: 1px !important;
-  background: linear-gradient(180deg, transparent, rgba(255,184,0,0.5), transparent) !important;
-}
-
-/* Kill any remaining template styles */
+/* Kill template images */
 .image, .image.main, .image.fit {
   display: none !important;
 }
@@ -520,9 +557,54 @@ section {
   display: none !important;
 }
 
-/* Force clean state */
 .post.featured {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+/* ==================== ADDITIONAL OVERRIDES ==================== */
+/* Ensure no dark backgrounds slip through */
+#wrapper, #wrapper > *, #main, #main > * {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Force light colors everywhere */
+* {
+  color: var(--text-primary) !important;
+}
+
+/* Reset specific text colors */
+p, li, span, div {
+  color: var(--text-secondary) !important;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  color: var(--text-primary) !important;
+}
+
+/* Header positioning fix */
+#header {
+  background: transparent !important;
+  z-index: 999 !important;
+}
+
+#header .logo {
+  color: var(--text-primary) !important;
+  font-weight: 700 !important;
+}
+
+/* Ensure proper z-index stacking */
+#nav {
+  z-index: 1000 !important;
+}
+
+#intro {
+  z-index: 1 !important;
+}
+
+#main {
+  z-index: 2 !important;
+  position: relative !important;
 }
