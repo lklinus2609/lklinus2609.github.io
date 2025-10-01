@@ -254,7 +254,7 @@ li {
   align-items: center !important;
   min-height: 70vh !important;
   text-align: center !important;
-  padding: 180px var(--space-8) var(--space-16) !important;
+  padding: 180px var(--space-8) var(--space-8) !important;
   margin-top: 0 !important;
   position: relative !important;
   background: linear-gradient(180deg, #F9F7F4 0%, #F4F2EF 100%) !important;
@@ -293,7 +293,7 @@ li {
 }
 
 section {
-  padding: 400px 0 120px 0 !important;
+  padding: 800px 0 !important;
   background: transparent !important;
 }
 
