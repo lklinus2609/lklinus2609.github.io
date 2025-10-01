@@ -67,6 +67,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   background-color: #F9F7F4 !important;
   background: #F9F7F4 !important;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="%232A2A2A"><rect x="7" y="2" width="4" height="10"/><rect x="12" y="2" width="4" height="12"/><rect x="17" y="2" width="4" height="11"/><rect x="22" y="3" width="4" height="8"/><rect x="7" y="12" width="20" height="10" rx="2"/><rect x="10" y="14" width="2" height="2" fill="%23F4C430"/><rect x="15" y="14" width="2" height="2" fill="%23F4C430"/><rect x="20" y="14" width="2" height="2" fill="%23F4C430"/></g></svg>'), auto !important;
 }
 
 body {
@@ -75,15 +76,19 @@ body {
   line-height: 1.7 !important;
   color: var(--text-primary) !important;
   background-color: #F9F7F4 !important;
-  background-image: none !important;
   background: #F9F7F4 !important;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="%232A2A2A"><rect x="7" y="2" width="4" height="10"/><rect x="12" y="2" width="4" height="12"/><rect x="17" y="2" width="4" height="11"/><rect x="22" y="3" width="4" height="8"/><rect x="7" y="12" width="20" height="10" rx="2"/><rect x="10" y="14" width="2" height="2" fill="%23F4C430"/><rect x="15" y="14" width="2" height="2" fill="%23F4C430"/><rect x="20" y="14" width="2" height="2" fill="%23F4C430"/></g></svg>'), auto !important;
   overflow-x: hidden;
 }
 
+body.clicking {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="%232A2A2A"><rect x="7" y="10" width="4" height="4"/><rect x="12" y="8" width="4" height="6"/><rect x="17" y="9" width="4" height="5"/><rect x="22" y="11" width="4" height="3"/><rect x="7" y="12" width="20" height="10" rx="2"/><rect x="10" y="14" width="2" height="2" fill="%23F4C430"/><rect x="15" y="14" width="2" height="2" fill="%23F4C430"/><rect x="20" y="14" width="2" height="2" fill="%23F4C430"/></g></svg>'), auto !important;
+}
+
 #wrapper {
-  background-color: #F9F7F4 !important;
+  background-color: transparent !important;
   background-image: none !important;
-  background: #F9F7F4 !important;
+  background: transparent !important;
   min-height: 100vh;
 }
 
@@ -139,6 +144,7 @@ a {
   text-decoration: none !important;
   transition: color var(--duration-fast) var(--ease-smooth) !important;
   position: relative !important;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="%23F4C430"><rect x="7" y="2" width="4" height="10"/><rect x="12" y="2" width="4" height="12"/><rect x="17" y="2" width="4" height="11"/><rect x="22" y="3" width="4" height="8"/><rect x="7" y="12" width="20" height="10" rx="2"/><rect x="10" y="14" width="2" height="2" fill="%232A2A2A"/><rect x="15" y="14" width="2" height="2" fill="%232A2A2A"/><rect x="20" y="14" width="2" height="2" fill="%232A2A2A"/><rect x="11" y="18" width="2" height="2" fill="%232A2A2A"/><rect x="13" y="19" width="6" height="2" fill="%232A2A2A"/><rect x="19" y="18" width="2" height="2" fill="%232A2A2A"/></g></svg>'), pointer !important;
 }
 
 a:hover {
@@ -280,9 +286,9 @@ li {
 
 /* ==================== MAIN CONTENT ==================== */
 #main {
-  background-color: #F9F7F4 !important;
+  background-color: transparent !important;
   background-image: none !important;
-  background: #F9F7F4 !important;
+  background: transparent !important;
   padding-top: 0 !important;
 }
 
@@ -328,6 +334,11 @@ section.container:first-of-type,
   transition: all var(--duration-base) var(--ease-smooth) !important;
   border: 1px solid transparent !important;
   position: relative !important;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="%232A2A2A"><rect x="7" y="2" width="4" height="10"/><rect x="12" y="2" width="4" height="12"/><rect x="17" y="2" width="4" height="11"/><rect x="22" y="3" width="4" height="8"/><rect x="7" y="12" width="20" height="10" rx="2"/><rect x="10" y="14" width="2" height="2" fill="%23F4C430"/><rect x="15" y="14" width="2" height="2" fill="%23F4C430"/><rect x="20" y="14" width="2" height="2" fill="%23F4C430"/></g></svg>'), auto !important;
+}
+
+body.clicking .card {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="%232A2A2A"><rect x="7" y="10" width="4" height="4"/><rect x="12" y="8" width="4" height="6"/><rect x="17" y="9" width="4" height="5"/><rect x="22" y="11" width="4" height="3"/><rect x="7" y="12" width="20" height="10" rx="2"/><rect x="10" y="14" width="2" height="2" fill="%23F4C430"/><rect x="15" y="14" width="2" height="2" fill="%23F4C430"/><rect x="20" y="14" width="2" height="2" fill="%23F4C430"/></g></svg>'), auto !important;
 }
 
 .card:hover {
@@ -339,7 +350,11 @@ section.container:first-of-type,
 /* Flip Card Styles */
 .card-flip {
   perspective: 1000px !important;
-  cursor: pointer !important;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="%232A2A2A"><rect x="7" y="2" width="4" height="10"/><rect x="12" y="2" width="4" height="12"/><rect x="17" y="2" width="4" height="11"/><rect x="22" y="3" width="4" height="8"/><rect x="7" y="12" width="20" height="10" rx="2"/><rect x="10" y="14" width="2" height="2" fill="%23F4C430"/><rect x="15" y="14" width="2" height="2" fill="%23F4C430"/><rect x="20" y="14" width="2" height="2" fill="%23F4C430"/></g></svg>'), pointer !important;
+}
+
+body.clicking .card-flip {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="%232A2A2A"><rect x="7" y="10" width="4" height="4"/><rect x="12" y="8" width="4" height="6"/><rect x="17" y="9" width="4" height="5"/><rect x="22" y="11" width="4" height="3"/><rect x="7" y="12" width="20" height="10" rx="2"/><rect x="10" y="14" width="2" height="2" fill="%23F4C430"/><rect x="15" y="14" width="2" height="2" fill="%23F4C430"/><rect x="20" y="14" width="2" height="2" fill="%23F4C430"/></g></svg>'), pointer !important;
 }
 
 .card-flip .card {
@@ -659,16 +674,16 @@ section.container:first-of-type,
 
 /* ==================== ADDITIONAL OVERRIDES ==================== */
 /* NUCLEAR OPTION: Override everything to light theme */
-html, body, #wrapper, #wrapper *, #main, #main *, div, section {
+#wrapper, #wrapper *, #main, #main *, div, section {
   background-image: none !important;
 }
 
-body, #wrapper {
-  background-color: #F9F7F4 !important;
+#wrapper {
+  background-color: transparent !important;
 }
 
 #main {
-  background-color: #F9F7F4 !important;
+  background-color: transparent !important;
 }
 
 /* Force light colors everywhere */
