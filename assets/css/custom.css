@@ -217,13 +217,20 @@ li {
   top: 50% !important;
   transform: translateY(-50%) !important;
   display: flex !important;
-  gap: var(--space-5) !important;
+  gap: var(--space-6) !important;
+  list-style: none !important;
+}
+
+#nav .icons li {
+  display: inline-block !important;
+  margin: 0 !important;
 }
 
 #nav .icons a {
-  font-size: 20px !important;
-  color: var(--text-secondary) !important;
+  font-size: 22px !important;
+  color: var(--text-primary) !important;
   transition: all var(--duration-fast) var(--ease-smooth) !important;
+  display: inline-block !important;
 }
 
 #nav .icons a:hover {
@@ -233,6 +240,8 @@ li {
 
 #nav .icons a .label {
   display: none !important;
+  visibility: hidden !important;
+  position: absolute !important;
 }
 
 /* ==================== HERO SECTION ==================== */
