@@ -176,5 +176,25 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+			<!-- Force scroll to top on page load/refresh -->
+			<script>
+				// Prevent browser from restoring scroll position
+				if ('scrollRestoration' in history) {
+					history.scrollRestoration = 'manual';
+				}
+
+				// Force scroll to top immediately
+				window.addEventListener('beforeunload', function() {
+					window.scrollTo(0, 0);
+				});
+
+				// Also force on load
+				window.addEventListener('load', function() {
+					setTimeout(function() {
+						window.scrollTo(0, 0);
+					}, 0);
+				});
+			</script>
+
 	</body>
 </html>
