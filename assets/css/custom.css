@@ -271,6 +271,7 @@ li {
   font-weight: 800 !important;
   margin-bottom: var(--space-4) !important;
   color: var(--text-primary) !important;
+  white-space: nowrap !important;
 }
 
 #intro p {
@@ -586,7 +587,10 @@ body.clicking .card-flip {
   h2 { font-size: 36px !important; }
   h3 { font-size: 24px !important; }
 
-  #intro h1 { font-size: 52px !important; }
+  #intro h1 {
+    font-size: 42px !important;
+    white-space: nowrap !important;
+  }
   #intro { min-height: 50vh !important; }
 
   .grid-2, .grid-3 {
@@ -615,7 +619,10 @@ body.clicking .card-flip {
 
 @media (max-width: 480px) {
   h1 { font-size: 36px !important; }
-  #intro h1 { font-size: 42px !important; }
+  #intro h1 {
+    font-size: 32px !important;
+    white-space: nowrap !important;
+  }
 
   .card {
     padding: var(--space-6) !important;
