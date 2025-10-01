@@ -293,14 +293,18 @@ li {
 }
 
 section {
-  padding: var(--space-16) 0 !important;
+  padding: var(--space-20) 0 !important;
   background: transparent !important;
+}
+
+section:first-of-type {
+  padding-top: 0 !important;
 }
 
 .section-title {
   font-size: 48px !important;
   text-align: center !important;
-  margin-bottom: var(--space-12) !important;
+  margin-bottom: var(--space-16) !important;
   position: relative !important;
   display: inline-block !important;
   width: 100% !important;
