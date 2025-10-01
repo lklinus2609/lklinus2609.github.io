@@ -25,10 +25,10 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li><a href="index.html">Main</a></li>
+							<li><a href="index.html">Home</a></li>
 							<li><a href="research.html">Research</a></li>
-							<li class="active"><a href="project.html">Project</a></li>
-							<!-- <li><a href="elements.html">Elements Reference</a></li> -->
+							<li class="active"><a href="project.html">Projects</a></li>
+							<!-- <li><a href="elements.html">Elements</a></li> -->
 						</ul>
 						<ul class="icons">
 							<li><a href="https://www.linkedin.com/in/linuskim2000/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
@@ -42,66 +42,70 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1>Ongoing & past Projects<br />
+									<h1>Engineering Projects<br />
 									</h1>
-									<p>My current personal project is developing a distributed hierarchical Model Predictive Control framework<br />
+									<p>A collection of robotics, control systems, and mechanical design projects demonstrating full-stack engineering capabilities.<br />
 									</p>
 								</header>
 								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Most modern humanoids utilise an MPC for higher level planning and a whole body controller for low level execution. While this hierarchical architecture has been proven to work well, MPCs are inherently conputationally intensive and model specific.</p>
-								<p>Inspired by Amatucci et al. [1], the goal of this personal project is to develop distributed MPC framework for humanoid application</p>
+
+								<h2>Distributed Hierarchical MPC Framework</h2>
+								<p><strong>Personal Research Project | Ongoing</strong></p>
+								<p>Developing a distributed hierarchical Model Predictive Control (MPC) framework specifically designed for humanoid robotics applications. Most modern humanoids utilize an MPC for high-level planning and a whole-body controller for low-level execution. While this hierarchical architecture has proven effective, MPCs are inherently computationally intensive and model-specific, limiting real-time performance and adaptability.</p>
+								<p>Inspired by the distributed optimization work of Amatucci et al., this project aims to decompose the centralized MPC problem into smaller, parallelizable subproblems that can be solved more efficiently while maintaining coordination across the robot's subsystems.</p>
+								<p><strong>Technical Approach:</strong> Decomposition of whole-body dynamics, distributed optimization algorithms, real-time implementation considerations</p>
+								<p><strong>Technologies:</strong> Python, optimization libraries, MPC formulation, parallel computing</p>
 							</section>
 
 							<section class="posts">
 								<article>
 									<header>
-										<h2><a href="#">BattleBot</h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/battlebot1.jpg" alt="" /></a>
-									<p>Competitve Battlebot: A ruthless machine which, due to unforeseen technical issues, could not drive backwards, but still fought courageously</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">More Detail</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="#">Vision Based Agent Detection</h2>
+										<h2>Vision-Based Multi-Agent Control System</h2>
 									</header>
 									<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
-									<p>Developed an eyetracking program that determines which robotic agent is being looked at by the user to control</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">More Detail</a></li>
-									</ul>
+									<p><strong>Oct 2024 – Dec 2024</strong></p>
+									<p>Developed a vision-based multi-agent control system using real-time eye tracking to determine which robotic agent the user is looking at. Implemented using OpenCV and Dlib for eye tracking, with an SVM classifier using HOG feature detection to process camera input. The system uses FilterPy and NumPy for state estimation and filtering.</p>
+									<p>Created an interactive Python application integrating multi-threading for real-time performance and Tkinter/Turtle graphics for visualization.</p>
+									<p><strong>Technologies:</strong> OpenCV, Dlib, SVM, HOG, FilterPy, NumPy, multi-threading, Tkinter</p>
 								</article>
 								<article>
 									<header>
-										<h2><a href="#">Pick & Place Mechanism</h2>
+										<h2>BattleBot Design & Fabrication</h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/battlebot1.jpg" alt="" /></a>
+									<p><strong>Aug 2024 – Dec 2024</strong></p>
+									<p>Led end-to-end design process for a competitive battle robot, including project planning, requirements analysis, preliminary performance calculations, and formal design reviews to optimize competitive advantage.</p>
+									<p>Designed and validated mechanical components through Finite Element Analysis (FEA) and dynamic load analysis with iterative prototyping. Fabricated a robust yet compact prototype through 3D printing, CNC machining, and electrical assembly.</p>
+									<p><strong>Technologies:</strong> FEA, dynamic load analysis, 3D printing, CNC machining, electrical assembly, SolidWorks</p>
+								</article>
+								<article>
+									<header>
+										<h2>Basketball Robot: 8-Bar Pick & Place</h2>
 									</header>
 									<a href="#" class="image fit"><img src="images/Dipper2.png" alt="" /></a>
-									<p>An 8 bar pick and place mechanism specifically designed to pick oreo cookies, dip it into a cup of milk, and serve it to the user without dirtying the hands</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">More Detail</a></li>
-									</ul>
+									<p><strong>Aug 2025 – Dec 2025</strong></p>
+									<p>Simulated, prototyped, and demonstrated an 8-bar linkage pick-and-place mechanism integrated with a custom end effector for basketball handling. Used the Newton-Raphson method for kinematic analysis and trajectory optimization.</p>
+									<p>Implemented simulation and control in MATLAB and Python, then demonstrated the physical prototype at a live event with 100+ participants.</p>
+									<p><strong>Technologies:</strong> Newton-Raphson method, kinematic analysis, MATLAB, Python, mechanism design, prototyping</p>
 								</article>
 								<article>
 									<header>
-										<h2><a href="#">Remote Controlled RaceCar</h2>
+										<h2>Cookie Dipper: 8-Bar Mechanism</h2>
 									</header>
-									<a href="#" class="image fit"><img src="images/RC1.jpg" alt="" /></a>
-									<p>Development of a remote controlled racecar that heroically disassembled during its third race after significant impacts</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">More Detail</a></li>
-									</ul>
+									<a href="#" class="image fit"><img src="images/Dipper2.png" alt="" /></a>
+									<p><strong>Mar 2024 – Apr 2024</strong></p>
+									<p>Designed an 8-bar pick-and-place mechanism specifically engineered to pick Oreo cookies, dip them into milk, and serve them without getting hands dirty. Utilized Newton-Raphson method for inverse kinematics and path planning.</p>
+									<p>Simulated in MATLAB/Python and demonstrated the working prototype at a live event with 100+ participants.</p>
+									<p><strong>Technologies:</strong> 8-bar linkage design, Newton-Raphson method, MATLAB, Python, mechanical prototyping</p>
 								</article>
 								<article>
 									<header>
-										<h2><a href="#">Portable Wearable AED</h2>
+										<h2>Portable Wearable AED Design</h2>
 									</header>
 									<a href="#" class="image fit"><img src="images/AED.png" /></a>
-									<p>Design of a unique 2-piece portable AED that can be worn by lifeguards amd safety/security staffs at all times in the form of a wrist watch</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">More Detail</a></li>
-									</ul>
+									<p><strong>Design Project</strong></p>
+									<p>Designed a unique 2-piece portable Automated External Defibrillator (AED) that can be worn by lifeguards and safety/security staff at all times in the form of a wristwatch. The design prioritizes accessibility, rapid deployment, and continuous availability in emergency situations.</p>
+									<p><strong>Technologies:</strong> Medical device design, wearable electronics, SolidWorks, human factors engineering</p>
 								</article>
 					</div>
 
