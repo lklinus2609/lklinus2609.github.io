@@ -65,6 +65,8 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F9F7F4 !important;
+  background: #F9F7F4 !important;
 }
 
 body {
