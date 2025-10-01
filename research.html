@@ -10,6 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -39,29 +40,33 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<h1>Ongoing & Past Research<br />
-									</h1>
-									<p>My research focuses on full-stack humanoid robotics—spanning mechanical design, hardware integration, real-time control, and learning-based optimization.<br />
-									</p>
-								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
+						<!-- Page Header -->
+						<section class="container">
+							<h1 class="section-title">Ongoing & Past Research</h1>
+							<p style="text-align: center; max-width: 800px; margin: 0 auto;">
+								My research focuses on full-stack humanoid robotics—spanning mechanical design, hardware integration, real-time control, and learning-based optimization.
+							</p>
+						</section>
 
-								<h2>DRACO 4: Next-Generation Humanoid Platform</h2>
-								<p><strong>Human Centered Robotics Lab | Graduate Research Assistant | Jan 2025 – Present</strong></p>
+						<!-- DRACO 4 - Featured Research -->
+						<section class="container">
+							<div class="card" style="border-left: 4px solid var(--color-accent-yellow); padding: var(--space-2xl);">
+								<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-lg); flex-wrap: wrap;">
+									<h2 style="margin: 0;">DRACO 4: Next-Generation Humanoid Platform</h2>
+									<span class="tag" style="background: var(--color-accent-yellow); color: var(--color-bg-dark);">Featured</span>
+								</div>
+								<p style="color: var(--color-text-secondary); margin-bottom: var(--space-lg);"><strong>Human Centered Robotics Lab | Graduate Research Assistant | Jan 2025 – Present</strong></p>
 
 								<p>I am leading the end-to-end development of DRACO 4, a next-generation full-sized humanoid designed to address the limitations of its predecessor while advancing the state of humanoid loco-manipulation research.</p>
 
-								<h3>The Challenge</h3>
+								<h3 style="color: var(--color-accent-yellow); margin-top: var(--space-xl);">The Challenge</h3>
 								<p>DRACO 3 was a successful humanoid platform with innovative rolling contact joints in the lower body. However, its design introduced significant challenges: the rolling contacts complicated control implementation, and inaccessible electronics placement made maintenance and upgrades nearly impossible. These issues motivated our lab to develop DRACO 4 with a fundamentally different design philosophy.</p>
 
-								<h3>Design Philosophy: Maintainable, Modular, Documented, Robust</h3>
-								<p>DRACO 4 is being developed as a <strong>maintainable and upgradable</strong> research platform with comprehensive documentation. Every design decision prioritizes accessibility for future researchers and ease of hardware servicing. The platform features a novel, low-inertia upper body limb design that enables both high-performance manipulation and safe human-robot interaction.</p>
+								<h3 style="color: var(--color-accent-yellow); margin-top: var(--space-xl);">Design Philosophy: Maintainable, Modular, Documented, Robust</h3>
+								<p>DRACO 4 is being developed as a maintainable and upgradable research platform with comprehensive documentation. Every design decision prioritizes accessibility for future researchers and ease of hardware servicing. The platform features a novel, low-inertia upper body limb design that enables both high-performance manipulation and safe human-robot interaction.</p>
 
-								<h3>My Contributions</h3>
-								<ul>
+								<h3 style="color: var(--color-accent-yellow); margin-top: var(--space-xl);">My Contributions</h3>
+								<ul style="padding-left: var(--space-xl);">
 									<li><strong>Mechanical Design & Fabrication:</strong> Designed and manufactured the entire lower body using CAD (SolidWorks), including structural components, joint assemblies, and integration points for electronics and actuators.</li>
 									<li><strong>Hardware Integration:</strong> Fabricated and assembled mechanical components, integrated electronic hardware systems including motor drivers, sensors, and computing infrastructure.</li>
 									<li><strong>Real-Time Communication:</strong> Developed a ROS2/EtherCAT communication interface using the SOEM (Simple Open EtherCAT Master) library to establish deterministic, real-time communication between the control computer and robot hardware with sub-millisecond latency.</li>
@@ -69,37 +74,60 @@
 									<li><strong>Simulation Development:</strong> Built high-fidelity physics simulations in Isaac Lab for rapid prototyping of morphological variations and control strategies before physical implementation.</li>
 								</ul>
 
-								<h3>Technical Stack</h3>
-								<p><strong>Software:</strong> ROS2, EtherCAT/SOEM, PyTorch, Isaac Lab, Mujoco, Python, C++<br/>
-								<strong>Hardware:</strong> SolidWorks CAD, 3D printing, CNC machining, motor driver integration, sensor calibration</p>
+								<h3 style="color: var(--color-accent-yellow); margin-top: var(--space-xl);">Technical Stack</h3>
+								<div class="mt-md">
+									<span class="tag">ROS2</span>
+									<span class="tag">EtherCAT/SOEM</span>
+									<span class="tag">PyTorch</span>
+									<span class="tag">Isaac Lab</span>
+									<span class="tag">Mujoco</span>
+									<span class="tag">Python</span>
+									<span class="tag">C++</span>
+									<span class="tag">SolidWorks</span>
+									<span class="tag">3D Printing</span>
+									<span class="tag">CNC Machining</span>
+								</div>
 
-								<h3>Impact</h3>
-								<p>DRACO 4 will serve as the primary research platform for humanoid loco-manipulation at the HCR lab, enabling future research in whole-body control, learning-based locomotion, and human-robot collaboration.</p>
-							</section>
+								<div class="card" style="background: var(--color-grey-900); margin-top: var(--space-xl); border-left: 3px solid var(--color-accent-yellow);">
+									<h4 style="color: var(--color-accent-yellow); margin-bottom: var(--space-md);">Impact</h4>
+									<p style="margin: 0;">DRACO 4 will serve as the primary research platform for humanoid loco-manipulation at the HCR lab, enabling future research in whole-body control, learning-based locomotion, and human-robot collaboration.</p>
+								</div>
+							</div>
+						</section>
 
-						<!-- Posts -->
-						<section class="posts">
-							<article>
-								<header>
-									<h2>BreathIQ: Smart Respiratory Monitoring</h2>
-								</header>
-								<a href="#" class="image fit"><img src="images/BIQ.png" alt="" /></a>
-								<p><strong>Hutter Research Group | Undergraduate Research Assistant | Aug 2023 – May 2025</strong></p>
-								<p>Designed a multi-sensor at-home medical device for COPD patients that measures and records flowrate, CO₂ concentration, and heart rate from breathing patterns. Researched air flow sensor technologies and analyzed 50+ patient datasets using Principal Component Analysis (PCA). Developed a Python-based UI for real-time data collection and visualization.</p>
-								<p><strong>Impact:</strong> Co-authored presentation poster for the 2024 Defense TechConnect Innovation Summit and Expo.</p>
-								<p><strong>Technologies:</strong> SolidWorks, Python, PCA, sensor integration, medical device prototyping</p>
-							</article>
-							<article>
-								<header>
-									<h2>NeuFinger: Cable-Driven Robotic Finger</h2>
-								</header>
-								<a href="#" class="image fit"><img src="images/nufinger7.jpg" alt="" /></a>
-								<p><strong>Rehabilitation and Neuromuscular Robotics Lab | Undergraduate Research Assistant | June 2024 – Aug 2024</strong></p>
-								<p>Fabricated and assembled a pair of cable-pulley robotic fingers (4 DOF total: 2×2 DOF), improving structural integrity and minimizing joint play. Developed 2 prototype tensioner mechanisms to maintain cable system reliability during dynamic experiments.</p>
-								<p>Assisted in sensorless force estimation research by configuring and calibrating GL80 KV30 actuators for precise torque control.</p>
-								<p><strong>Technologies:</strong> Cable-driven mechanisms, actuator calibration, mechanical fabrication, force estimation</p>
-							</article>
-							
+						<!-- Other Research Projects -->
+						<section class="container">
+							<h2 class="section-title">Additional Research</h2>
+							<div class="grid grid-2">
+								<div class="card">
+									<h3>BreathIQ: Smart Respiratory Monitoring</h3>
+									<p style="color: var(--color-text-tertiary); font-size: var(--font-size-sm); margin-bottom: var(--space-md);"><strong>Hutter Research Group | Undergraduate Research Assistant | Aug 2023 – May 2025</strong></p>
+									<p>Designed a multi-sensor at-home medical device for COPD patients that measures and records flowrate, CO₂ concentration, and heart rate from breathing patterns. Researched air flow sensor technologies and analyzed 50+ patient datasets using Principal Component Analysis (PCA). Developed a Python-based UI for real-time data collection and visualization.</p>
+									<div class="card" style="background: var(--color-grey-900); padding: var(--space-md); margin-top: var(--space-md); border-left: 3px solid var(--color-accent-yellow);">
+										<p style="margin: 0; font-size: var(--font-size-sm);"><strong>Impact:</strong> Co-authored presentation poster for the 2024 Defense TechConnect Innovation Summit and Expo.</p>
+									</div>
+									<div class="mt-md">
+										<span class="tag">SolidWorks</span>
+										<span class="tag">Python</span>
+										<span class="tag">PCA</span>
+										<span class="tag">Medical Device</span>
+									</div>
+								</div>
+								<div class="card">
+									<h3>NeuFinger: Cable-Driven Robotic Finger</h3>
+									<p style="color: var(--color-text-tertiary); font-size: var(--font-size-sm); margin-bottom: var(--space-md);"><strong>Rehabilitation and Neuromuscular Robotics Lab | Undergraduate Research Assistant | June 2024 – Aug 2024</strong></p>
+									<p>Fabricated and assembled a pair of cable-pulley robotic fingers (4 DOF total: 2×2 DOF), improving structural integrity and minimizing joint play. Developed 2 prototype tensioner mechanisms to maintain cable system reliability during dynamic experiments.</p>
+									<p>Assisted in sensorless force estimation research by configuring and calibrating GL80 KV30 actuators for precise torque control.</p>
+									<div class="mt-md">
+										<span class="tag">Cable Actuation</span>
+										<span class="tag">Actuator Calibration</span>
+										<span class="tag">Force Estimation</span>
+										<span class="tag">Mechanical Fabrication</span>
+									</div>
+								</div>
+							</div>
+						</section>
+
 					</div>
 
 				<!-- Footer -->
