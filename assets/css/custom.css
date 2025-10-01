@@ -295,7 +295,7 @@ li {
 section,
 section.container,
 #main section {
-  padding: 800px 0 !important;
+  padding: 200px 0 !important;
   background: transparent !important;
 }
 
@@ -538,7 +538,7 @@ section.container:first-of-type,
   }
 
   section {
-    padding: 400px 0 !important;
+    padding: 150px 0 !important;
   }
 
   #nav .links {
