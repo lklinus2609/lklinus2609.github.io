@@ -38,9 +38,9 @@
   --space-6: 32px;
   --space-8: 48px;
   --space-10: 64px;
-  --space-12: 80px;
-  --space-16: 96px;
-  --space-20: 128px;
+  --space-12: 72px;
+  --space-16: 80px;
+  --space-20: 96px;
 
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -231,6 +231,10 @@ li {
   transform: translateY(-2px) !important;
 }
 
+#nav .icons a .label {
+  display: none !important;
+}
+
 /* ==================== HERO SECTION ==================== */
 #intro {
   display: flex !important;
@@ -278,14 +282,14 @@ li {
 }
 
 section {
-  padding: var(--space-20) 0 !important;
+  padding: var(--space-16) 0 !important;
   background: transparent !important;
 }
 
 .section-title {
   font-size: 48px !important;
   text-align: center !important;
-  margin-bottom: var(--space-16) !important;
+  margin-bottom: var(--space-12) !important;
   position: relative !important;
   display: inline-block !important;
   width: 100% !important;
@@ -413,23 +417,50 @@ section {
 #footer {
   background: var(--surface-subtle) !important;
   border-top: 1px solid var(--border-subtle) !important;
-  padding: var(--space-16) 0 !important;
+  padding: var(--space-12) 0 var(--space-10) !important;
+}
+
+#footer .split.contact {
+  display: flex !important;
+  justify-content: center !important;
+  gap: var(--space-12) !important;
+  flex-wrap: wrap !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+}
+
+#footer .split.contact > section {
+  flex: 0 1 auto !important;
+  text-align: center !important;
+  min-width: 200px !important;
 }
 
 #footer h3 {
   color: var(--text-primary) !important;
-  font-size: 16px !important;
-  margin-bottom: var(--space-4) !important;
+  font-size: 14px !important;
+  margin-bottom: var(--space-3) !important;
   font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
 }
 
 #footer p, #footer a {
-  color: var(--text-tertiary) !important;
-  font-size: 15px !important;
+  color: var(--text-secondary) !important;
+  font-size: 16px !important;
 }
 
 #footer a:hover {
   color: var(--yellow-warm) !important;
+}
+
+#footer .icons.alt {
+  display: flex !important;
+  justify-content: center !important;
+  gap: var(--space-4) !important;
+}
+
+#footer .icons.alt a {
+  font-size: 22px !important;
 }
 
 #copyright {
@@ -603,12 +634,15 @@ h1, h2, h3, h4, h5, h6, strong {
   background: transparent !important;
   z-index: 999 !important;
   padding-top: 80px !important;
+  text-align: center !important;
+  display: block !important;
 }
 
 #header .logo {
   color: var(--text-primary) !important;
   font-weight: 700 !important;
   font-size: 24px !important;
+  display: inline-block !important;
 }
 
 /* Ensure proper z-index stacking */
