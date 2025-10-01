@@ -17,10 +17,6 @@
 						<h1>Linus Kim</h1>
 						<p>Graduate Robotics Researcher @ UT Austin Human Centered Robotics Lab</p>
 						<p style="max-width: 600px; margin-top: 24px; font-size: 18px;">Working on humanoid robotics • Isaac Lab morphology optimization • ROS2/EtherCAT systems</p>
-						<div style="margin-top: 32px; display: flex; gap: 16px; justify-content: center;">
-							<a href="research.html" class="button">View Research</a>
-							<a href="project.html" class="button" style="background: transparent; border: 2px solid var(--yellow-warm); color: var(--yellow-warm);">Projects</a>
-						</div>
 					</div>
 
 				<!-- Header -->
@@ -31,10 +27,10 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="index.html">Home</a></li>
-							<li><a href="research.html">Research</a></li>
-							<li><a href="project.html">Projects</a></li>
-							<!-- <li><a href="elements.html">Elements</a></li> -->
+							<li><a href="#about">About</a></li>
+							<li><a href="#research">Research</a></li>
+							<li><a href="#projects">Projects</a></li>
+							<li><a href="#contact">Contact</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="https://www.linkedin.com/in/linuskim2000/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
@@ -46,190 +42,123 @@
 					<div id="main">
 
 						<!-- About Section -->
-						<section class="container">
+						<section id="about" class="container">
 							<div style="max-width: 900px; margin: 0 auto;">
-								<h2 class="section-title">Who I Am</h2>
+								<h2 class="section-title">About</h2>
 								<p style="text-align: center; margin: 0 auto var(--space-10); font-size: 20px; line-height: 1.8;">
 									Graduate Research Assistant at the <strong>Human Centered Robotics Lab @ UT Austin</strong>, pursuing my M.S. in Mechanical Engineering with a focus on Robotics. I work on humanoid development—from nuts and bolts to neural networks.
 								</p>
 							</div>
+						</section>
 
-							<!-- Featured Research - Asymmetric Layout -->
-							<div class="featured-card" style="padding: var(--space-10); margin-top: var(--space-10);">
-								<div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6);">
-									<span style="display: inline-block; width: 8px; height: 8px; background: var(--yellow-warm); border-radius: 50%;"></span>
-									<h4 style="margin: 0; color: var(--yellow-deep); text-transform: uppercase; font-size: 14px; letter-spacing: 0.1em;">Current Focus</h4>
-								</div>
-								<h3 style="margin-bottom: var(--space-5);">DRACO 4: Next-Gen Humanoid Platform</h3>
-								<p style="margin-bottom: var(--space-5);">Leading end-to-end development of a maintainable, modular, well-documented humanoid. Using Isaac Lab and PyTorch for learning-based morphology optimization, with focus on oblique lower body axis configurations.</p>
-								<div style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
+						<!-- Research Section -->
+						<section id="research" class="container">
+							<h2 class="section-title">Research</h2>
+
+							<div class="card" style="margin-bottom: var(--space-8);">
+								<h3>DRACO 4: Next-Generation Humanoid Platform</h3>
+								<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Human Centered Robotics Lab | Jan 2025 – Present</strong></p>
+								<p style="margin-bottom: var(--space-5);">Leading end-to-end development of a next-generation full-sized humanoid. Responsible for mechanical design, hardware integration, ROS2/EtherCAT communication systems, and learning-based morphology optimization using Isaac Lab.</p>
+								<div class="mt-md">
 									<span class="tag">ROS2</span>
 									<span class="tag">EtherCAT</span>
 									<span class="tag">Isaac Lab</span>
 									<span class="tag">PyTorch</span>
-									<span class="tag">Full-Stack</span>
+									<span class="tag">SolidWorks</span>
 								</div>
 							</div>
-						</section>
 
-						<!-- Research Highlights -->
-						<section class="container">
-							<div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--space-10); flex-wrap: wrap;">
-								<h2 class="section-title" style="margin: 0;">Research Highlights</h2>
-								<a href="research.html" style="color: var(--yellow-deep); font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-									Explore All <span style="font-size: 18px;">→</span>
-								</a>
-							</div>
-							<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-8);">
-								<div class="card" style="grid-column: span 2;">
-									<div style="display: flex; gap: var(--space-2); margin-bottom: var(--space-4);">
-										<span style="display: inline-block; padding: 4px 12px; background: var(--yellow-warm); color: var(--white-pure); border-radius: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.05em;">PRIMARY RESEARCH</span>
-										<span style="display: inline-block; padding: 4px 12px; background: var(--yellow-light); color: var(--yellow-deep); border-radius: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.05em;">ONGOING</span>
-									</div>
-									<h3 style="margin-bottom: var(--space-4); font-size: 28px;">DRACO 4 Humanoid</h3>
-									<p style="color: var(--text-secondary); margin-bottom: var(--space-5); line-height: 1.7;">Full-stack development of next-gen humanoid platform with learning-based morphology optimization in Isaac Lab. Leading mechanical design, hardware integration, and ROS2/EtherCAT communication systems.</p>
-									<div class="mt-md">
-										<span class="tag">ROS2</span>
-										<span class="tag">PyTorch</span>
-										<span class="tag">Isaac Lab</span>
-										<span class="tag">EtherCAT</span>
-										<span class="tag">Full-Stack</span>
-									</div>
-								</div>
+							<div class="grid grid-2">
 								<div class="card">
-									<div style="width: 40px; height: 40px; background: var(--yellow-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-4);">
-										<span style="font-size: 24px; color: var(--yellow-deep);">🫁</span>
-									</div>
-									<h3 style="margin-bottom: var(--space-3);">BreathIQ</h3>
-									<p style="color: var(--text-secondary); font-size: 15px; line-height: 1.6;">Multi-sensor respiratory monitoring device for COPD patients with PCA-based data analysis on 50+ datasets.</p>
+									<h3>BreathIQ</h3>
+									<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Hutter Research Group | Aug 2023 – May 2025</strong></p>
+									<p>Multi-sensor respiratory monitoring device for COPD patients. Analyzed 50+ patient datasets using PCA and developed Python-based UI for real-time data collection.</p>
 									<div class="mt-md">
 										<span class="tag">Medical Device</span>
 										<span class="tag">PCA</span>
-										<span class="tag">SolidWorks</span>
+										<span class="tag">Python</span>
 									</div>
 								</div>
 								<div class="card">
-									<div style="width: 40px; height: 40px; background: var(--yellow-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-4);">
-										<span style="font-size: 24px; color: var(--yellow-deep);">🤖</span>
-									</div>
-									<h3 style="margin-bottom: var(--space-3);">NeuFinger</h3>
-									<p style="color: var(--text-secondary); font-size: 15px; line-height: 1.6;">Cable-driven robotic finger platform for sensorless force estimation and control research.</p>
+									<h3>NeuFinger</h3>
+									<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Rehabilitation and Neuromuscular Robotics Lab | Jun 2024 – Aug 2024</strong></p>
+									<p>Cable-driven robotic finger platform for sensorless force estimation research. Fabricated 4 DOF system and developed tensioner mechanisms.</p>
 									<div class="mt-md">
 										<span class="tag">Cable Actuation</span>
 										<span class="tag">Force Estimation</span>
-										<span class="tag">Hardware</span>
 									</div>
 								</div>
 							</div>
 						</section>
 
-						<!-- Skills Section -->
-						<section class="container">
-							<h2 class="section-title" style="margin-bottom: var(--space-10);">Technical Stack</h2>
-							<div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8);">
-								<div class="card" style="position: relative; overflow: hidden;">
-									<div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: var(--yellow-light); border-radius: 0 0 0 80px; opacity: 0.5;"></div>
-									<div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-5);">
-										<div style="width: 36px; height: 36px; background: var(--yellow-warm); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-											<span style="font-size: 20px;">💻</span>
-										</div>
-										<h3 style="margin: 0; font-size: 22px;">Software & Simulation</h3>
-									</div>
+						<!-- Projects Section -->
+						<section id="projects" class="container">
+							<h2 class="section-title">Projects</h2>
+							<div class="grid grid-2">
+								<div class="card">
+									<h3>Distributed Hierarchical MPC Framework</h3>
+									<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Personal Project | Ongoing</strong></p>
+									<p>Developing a distributed MPC framework for humanoid robotics to decompose centralized control into parallelizable subproblems for improved real-time performance.</p>
 									<div class="mt-md">
-										<span class="tag">ROS2</span>
-										<span class="tag">EtherCAT/SOEM</span>
-										<span class="tag">Isaac Lab</span>
-										<span class="tag">Mujoco</span>
-										<span class="tag">PyTorch</span>
 										<span class="tag">Python</span>
-										<span class="tag">C++</span>
-										<span class="tag">MATLAB</span>
+										<span class="tag">MPC</span>
+										<span class="tag">Optimization</span>
+									</div>
+								</div>
+								<div class="card">
+									<h3>Vision-Based Multi-Agent Control</h3>
+									<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Oct 2024 – Dec 2024</strong></p>
+									<p>Real-time eye tracking system using OpenCV and Dlib with SVM classifier for multi-agent robot control interface.</p>
+									<div class="mt-md">
 										<span class="tag">OpenCV</span>
 										<span class="tag">Dlib</span>
-										<span class="tag">NumPy</span>
+										<span class="tag">Python</span>
 									</div>
 								</div>
-								<div class="card" style="position: relative; overflow: hidden;">
-									<div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: var(--yellow-light); border-radius: 0 0 0 80px; opacity: 0.5;"></div>
-									<div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-5);">
-										<div style="width: 36px; height: 36px; background: var(--yellow-warm); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-											<span style="font-size: 20px;">🔧</span>
-										</div>
-										<h3 style="margin: 0; font-size: 22px;">Hardware & Fabrication</h3>
-									</div>
+								<div class="card">
+									<h3>BattleBot Design</h3>
+									<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Aug 2024 – Dec 2024</strong></p>
+									<p>End-to-end design and fabrication of competitive battle robot with FEA validation and iterative prototyping.</p>
 									<div class="mt-md">
-										<span class="tag">SolidWorks</span>
-										<span class="tag">3D Printing</span>
-										<span class="tag">CNC Machining</span>
-										<span class="tag">Laser Cutting</span>
-										<span class="tag">Soldering</span>
-										<span class="tag">Motor Drivers</span>
-										<span class="tag">Sensor Integration</span>
 										<span class="tag">FEA</span>
+										<span class="tag">SolidWorks</span>
+										<span class="tag">CNC</span>
+									</div>
+								</div>
+								<div class="card">
+									<h3>8-Bar Mechanism Systems</h3>
+									<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Mar 2024 – Dec 2024</strong></p>
+									<p>Designed and demonstrated multiple 8-bar linkage mechanisms for pick-and-place operations using Newton-Raphson kinematic analysis.</p>
+									<div class="mt-md">
+										<span class="tag">MATLAB</span>
+										<span class="tag">Python</span>
+										<span class="tag">Mechanism Design</span>
 									</div>
 								</div>
 							</div>
 						</section>
 
-						<!-- Publications Section -->
-						<section class="container">
-							<h2 class="section-title" style="margin-bottom: var(--space-10);">Publications & Presentations</h2>
-							<div class="card" style="border-left: 4px solid var(--yellow-warm);">
-								<div style="display: flex; align-items: start; gap: var(--space-5);">
-									<div style="flex-shrink: 0; width: 48px; height: 48px; background: var(--yellow-light); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-										<span style="font-size: 24px;">📄</span>
-									</div>
-									<div style="flex: 1;">
-										<div style="display: inline-block; padding: 4px 10px; background: var(--yellow-light); color: var(--yellow-deep); border-radius: 8px; font-size: 11px; font-weight: 700; margin-bottom: var(--space-3);">2024</div>
-										<h4 style="margin-bottom: var(--space-2); color: var(--text-primary);">Defense TechConnect Innovation Summit and Expo</h4>
-										<p style="margin-bottom: 0; color: var(--text-secondary);">Co-authored presentation poster on BreathIQ: Multi-sensor respiratory monitoring device for COPD patients</p>
+						<!-- Contact Section -->
+						<section id="contact" class="container">
+							<h2 class="section-title">Contact</h2>
+							<div style="max-width: 600px; margin: 0 auto; text-align: center;">
+								<p style="margin-bottom: var(--space-8); font-size: 18px;">Feel free to reach out for collaboration or inquiries.</p>
+								<div style="display: flex; flex-direction: column; gap: var(--space-4); align-items: center;">
+									<p><strong>Email:</strong> <a href="mailto:lklinus0926@gmail.com">lklinus0926@gmail.com</a></p>
+									<p><strong>Phone:</strong> (512) 299-8254</p>
+									<div style="display: flex; gap: var(--space-6); margin-top: var(--space-4);">
+										<a href="https://www.linkedin.com/in/linuskim2000/" target="_blank" class="icon brands fa-linkedin" style="font-size: 28px;"><span class="label">LinkedIn</span></a>
+										<a href="https://github.com/lklinus2609" target="_blank" class="icon brands fa-github" style="font-size: 28px;"><span class="label">GitHub</span></a>
 									</div>
 								</div>
 							</div>
 						</section>
-
-						<!-- Footer -->
-							<footer>
-								<!-- <div class="pagination"> -->
-									<!--<a href="#" class="previous">Prev</a>-->
-									<!-- <a href="#" class="page active">1</a>
-									<a href="#" class="page">2</a>
-									<a href="#" class="page">3</a> -->
-									<!-- <span class="extra">&hellip;</span>
-									<a href="#" class="page">8</a>
-									<a href="#" class="page">9</a>
-									<a href="#" class="page">10</a> -->
-									<!-- <a href="#" class="next">Next</a> -->
-								<!-- </div> -->
-							</footer>
 
 					</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section class="split contact">
-
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(512) 299-8254</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">lklinus0926@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/linuskim2000/" target="_blank" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
-									<li><a href="https://github.com/lklinus2609" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
-
 				<!-- Copyright -->
 					<div id="copyright">
-						<ul><li>&copy; 2025 Linus Kim</li><li>All Rights Reserved</li></ul>
+						<p>&copy; 2025 Linus Kim. All Rights Reserved.</p>
 					</div>
 
 			</div>

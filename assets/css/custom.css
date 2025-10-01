@@ -5,18 +5,18 @@
 
 :root {
   /* Warm Light Color System */
-  --cream-base: #FEFDFB;
-  --white-pure: #FFFFFF;
-  --surface-subtle: #F9F8F6;
+  --cream-base: #F9F7F4;
+  --white-pure: #FEFDFB;
+  --surface-subtle: #F4F2EF;
 
   --text-primary: #2A2A2A;
   --text-secondary: #6B6B6B;
   --text-tertiary: #999999;
 
-  --yellow-warm: #FFB800;
-  --yellow-deep: #E6A500;
-  --yellow-light: #FFF9E6;
-  --yellow-glow: rgba(255, 184, 0, 0.15);
+  --yellow-warm: #D4A574;
+  --yellow-deep: #B8935F;
+  --yellow-light: #F5EFE7;
+  --yellow-glow: rgba(212, 165, 116, 0.1);
 
   --grey-warm: #8B8681;
   --border-subtle: #E8E6E3;
@@ -72,16 +72,16 @@ body {
   font-size: 18px !important;
   line-height: 1.7 !important;
   color: var(--text-primary) !important;
-  background-color: #FEFDFB !important;
+  background-color: #F9F7F4 !important;
   background-image: none !important;
-  background: #FEFDFB !important;
+  background: #F9F7F4 !important;
   overflow-x: hidden;
 }
 
 #wrapper {
-  background-color: #FEFDFB !important;
+  background-color: #F9F7F4 !important;
   background-image: none !important;
-  background: #FEFDFB !important;
+  background: #F9F7F4 !important;
   min-height: 100vh;
 }
 
@@ -246,7 +246,7 @@ li {
   padding: 180px var(--space-8) var(--space-16) !important;
   margin-top: 0 !important;
   position: relative !important;
-  background: linear-gradient(180deg, #FEFDFB 0%, #F9F8F6 100%) !important;
+  background: linear-gradient(180deg, #F9F7F4 0%, #F4F2EF 100%) !important;
 }
 
 #intro h1 {
@@ -269,9 +269,9 @@ li {
 
 /* ==================== MAIN CONTENT ==================== */
 #main {
-  background-color: #FEFDFB !important;
+  background-color: #F9F7F4 !important;
   background-image: none !important;
-  background: #FEFDFB !important;
+  background: #F9F7F4 !important;
   padding-top: 0 !important;
 }
 
@@ -608,11 +608,11 @@ html, body, #wrapper, #wrapper *, #main, #main *, div, section {
 }
 
 body, #wrapper {
-  background-color: #FEFDFB !important;
+  background-color: #F9F7F4 !important;
 }
 
 #main {
-  background-color: #FEFDFB !important;
+  background-color: #F9F7F4 !important;
 }
 
 /* Force light colors everywhere */
@@ -659,12 +659,22 @@ h1, h2, h3, h4, h5, h6, strong {
 #main {
   z-index: 2 !important;
   position: relative !important;
-  background-color: #FEFDFB !important;
+  background-color: #F9F7F4 !important;
 }
 
 /* Override any inline styles or JS-applied styles */
 body[style], #wrapper[style] {
-  background: #FEFDFB !important;
-  background-color: #FEFDFB !important;
+  background: #F9F7F4 !important;
+  background-color: #F9F7F4 !important;
   background-image: none !important;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* Active nav link styling */
+#nav .links a.active {
+  color: var(--yellow-warm) !important;
 }
