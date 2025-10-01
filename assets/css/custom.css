@@ -72,12 +72,16 @@ body {
   font-size: 18px !important;
   line-height: 1.7 !important;
   color: var(--text-primary) !important;
-  background: var(--cream-base) !important;
+  background-color: #FEFDFB !important;
+  background-image: none !important;
+  background: #FEFDFB !important;
   overflow-x: hidden;
 }
 
 #wrapper {
-  background: var(--cream-base) !important;
+  background-color: #FEFDFB !important;
+  background-image: none !important;
+  background: #FEFDFB !important;
   min-height: 100vh;
 }
 
@@ -233,11 +237,12 @@ li {
   flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
-  min-height: 60vh !important;
+  min-height: 70vh !important;
   text-align: center !important;
-  padding: 140px var(--space-8) var(--space-16) !important;
+  padding: 180px var(--space-8) var(--space-16) !important;
+  margin-top: 0 !important;
   position: relative !important;
-  background: linear-gradient(180deg, var(--cream-base) 0%, var(--surface-subtle) 100%) !important;
+  background: linear-gradient(180deg, #FEFDFB 0%, #F9F8F6 100%) !important;
 }
 
 #intro h1 {
@@ -260,7 +265,9 @@ li {
 
 /* ==================== MAIN CONTENT ==================== */
 #main {
-  background: var(--cream-base) !important;
+  background-color: #FEFDFB !important;
+  background-image: none !important;
+  background: #FEFDFB !important;
   padding-top: 0 !important;
 }
 
@@ -564,10 +571,17 @@ section {
 }
 
 /* ==================== ADDITIONAL OVERRIDES ==================== */
-/* Ensure no dark backgrounds slip through */
-#wrapper, #wrapper > *, #main, #main > * {
-  background-color: transparent !important;
+/* NUCLEAR OPTION: Override everything to light theme */
+html, body, #wrapper, #wrapper *, #main, #main *, div, section {
   background-image: none !important;
+}
+
+body, #wrapper {
+  background-color: #FEFDFB !important;
+}
+
+#main {
+  background-color: #FEFDFB !important;
 }
 
 /* Force light colors everywhere */
@@ -588,23 +602,35 @@ h1, h2, h3, h4, h5, h6, strong {
 #header {
   background: transparent !important;
   z-index: 999 !important;
+  padding-top: 80px !important;
 }
 
 #header .logo {
   color: var(--text-primary) !important;
   font-weight: 700 !important;
+  font-size: 24px !important;
 }
 
 /* Ensure proper z-index stacking */
 #nav {
   z-index: 1000 !important;
+  position: fixed !important;
 }
 
 #intro {
   z-index: 1 !important;
+  padding-top: 180px !important;
 }
 
 #main {
   z-index: 2 !important;
   position: relative !important;
+  background-color: #FEFDFB !important;
+}
+
+/* Override any inline styles or JS-applied styles */
+body[style], #wrapper[style] {
+  background: #FEFDFB !important;
+  background-color: #FEFDFB !important;
+  background-image: none !important;
 }
