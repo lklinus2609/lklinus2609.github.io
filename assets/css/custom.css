@@ -292,12 +292,16 @@ li {
   padding: 0 var(--space-8) !important;
 }
 
-section {
+section,
+section.container,
+#main section {
   padding: 800px 0 !important;
   background: transparent !important;
 }
 
-section:first-of-type {
+section:first-of-type,
+section.container:first-of-type,
+#main section:first-of-type {
   padding-top: 0 !important;
 }
 
