@@ -269,20 +269,20 @@ li {
 section,
 section.container,
 #main section {
-  padding: 5px 0 25px 0 !important;
+  padding: var(--space-8) 0 !important;
   background: transparent !important;
 }
 
 section:first-of-type,
 section.container:first-of-type,
 #main section:first-of-type {
-  padding-top: 0 !important;
+  padding-top: var(--space-12) !important;
 }
 
 .section-title {
   font-size: 48px !important;
   text-align: center !important;
-  margin-bottom: var(--space-16) !important;
+  margin-bottom: var(--space-8) !important;
   position: relative !important;
   display: inline-block !important;
   width: 100% !important;
@@ -476,7 +476,11 @@ body.clicking .card-flip {
   }
 
   section {
-    padding: 5px 0 20px 0 !important;
+    padding: var(--space-6) 0 !important;
+  }
+
+  section:first-of-type {
+    padding-top: var(--space-8) !important;
   }
 
   #nav .links {
