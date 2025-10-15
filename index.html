@@ -10,27 +10,21 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 		<link rel="stylesheet" href="assets/css/custom.css?v=9" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- Three.js for 3D model viewer -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
 	</head>
-	<body class="is-preload">
+	<body>
 
 		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
-
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Linus Kim <span style="font-weight: 300;">|</span> 김리노</h1>
-						<p>Graduate Robotics Researcher @ UT Austin Human Centered Robotics Lab</p>
-						<p style="max-width: 600px; margin-top: 24px; font-size: 18px;">Building and controlling humanoids</p>
-						<p style="margin-top: 16px; font-size: 16px; color: var(--text-secondary); text-align: center;">I swim, dive, surf, play tennis, and explore. But my robot walks, hopefully cooks, or idk do something.</p>
-					</div>
-
-				<!-- Header -->
-					<header id="header">
-					</header>
+			<div id="wrapper">
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
+							<li><a href="#intro">Intro</a></li>
 							<li><a href="#about">About</a></li>
 							<li><a href="#research">Research</a></li>
 							<li><a href="#projects">Projects</a></li>
@@ -45,18 +39,28 @@
 				<!-- Main -->
 					<div id="main">
 
+						<!-- Intro Section -->
+						<section id="intro" class="container">
+							<h2 class="section-title">Linus Kim | 김리노</h2>
+							<p style="text-align: center; margin-bottom: var(--space-10); font-size: 20px; line-height: 1.8;">
+								Graduate Robotics Researcher @ UT Austin Human Centered Robotics Lab
+								<br><br>
+								Building and controlling humanoids
+								<br><br>
+								I swim, dive, surf, play tennis, and explore. But my robot walks, hopefully cooks, or idk do something.
+							</p>
+						</section>
+
 						<!-- About Section -->
 						<section id="about" class="container">
-							<div style="max-width: 900px; margin: 0 auto; padding: 0 var(--space-5);">
-								<h2 class="section-title">About</h2>
-								<p style="text-align: center; margin: 0 auto var(--space-10); font-size: 20px; line-height: 1.8;">
-									If you didn't notice it from the name, I'm Korean.
-									<br><br>
-									I build humanoid robots at UT Austin's <strong>Human Centered Robotics Lab</strong> under Dr. Luis Sentis. Basically I design the hardware, write the control code, and pray it doesn't fall over.
-									<br><br>
-									<span style="font-size: 16px; color: var(--text-secondary); font-style: italic;">Click on cards to see photos! (I forgot to take photos of some tho)</span>
-								</p>
-							</div>
+							<h2 class="section-title">About</h2>
+							<p style="text-align: center; margin: 0 auto var(--space-10); font-size: 20px; line-height: 1.8;">
+								If you didn't notice it from the name, I'm Korean.
+								<br><br>
+								I build humanoid robots at UT Austin's <strong>Human Centered Robotics Lab</strong> under Dr. Luis Sentis. Basically I design the hardware, write the control code, and pray it doesn't fall over.
+								<br><br>
+								<span style="font-size: 16px; color: var(--text-secondary); font-style: italic;">Click on cards to see photos (I forgot to take photos of some tho)</span>
+							</p>
 						</section>
 
 						<!-- Research Section -->
@@ -67,6 +71,11 @@
 								<h3>DRACO 4: Next-Generation Humanoid Platform</h3>
 								<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Human Centered Robotics Lab</strong></p>
 								<p style="margin-bottom: var(--space-5);">Leading development of a full-sized humanoid from the ground up. I'm doing everything—mechanical design, hardware integration, ROS2/EtherCAT communication stack, and RL-based morphology optimization in Isaac Lab.</p>
+
+								<!-- 3D Model Viewer -->
+								<div id="draco-model-viewer" style="width: 100%; height: 500px; margin: var(--space-8) 0; border-radius: 20px; overflow: hidden; position: relative; background: linear-gradient(135deg, #F4F2EF 0%, #F9F7F4 100%);"></div>
+								<p style="text-align: center; font-size: 14px; color: var(--text-tertiary); font-style: italic; margin-top: -var(--space-6); margin-bottom: var(--space-6);">Click and drag to rotate, scroll to zoom</p>
+
 								<div class="mt-md">
 									<span class="tag">RL</span>
 									<span class="tag">Isaac Lab</span>
@@ -176,11 +185,11 @@
 										<div class="card-front">
 											<h3>Racecar</h3>
 											<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Project</strong></p>
-											<p>Built an autonomous racing vehicle with computer vision and path planning. Basically it drives itself around a track.</p>
+											<p>Built a remote-controlled racing vehicle and drove it around a track.</p>
 											<div class="mt-md">
-												<span class="tag">Autonomous Systems</span>
-												<span class="tag">Computer Vision</span>
-												<span class="tag">Control</span>
+												<span class="tag">RC Vehicle</span>
+												<span class="tag">Electronics</span>
+												<span class="tag">Mechanical Design</span>
 											</div>
 										</div>
 										<div class="card-back">
@@ -205,16 +214,6 @@
 										</div>
 									</div>
 								</div>
-								<!-- <div class="card">
-									<h3>Distributed Hierarchical MPC Framework</h3>
-									<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Personal Project</strong></p>
-									<p>Building a distributed MPC framework for humanoid control. The idea is to decompose centralized control into parallelizable subproblems for better real-time performance.</p>
-									<div class="mt-md">
-										<span class="tag">Python</span>
-										<span class="tag">MPC</span>
-										<span class="tag">Optimization</span>
-									</div>
-								</div> -->
 							</div>
 						</section>
 
@@ -243,13 +242,7 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="assets/js/model-viewer.js"></script>
 
 			<!-- Force scroll to top on page load/refresh -->
 			<script>
@@ -324,6 +317,19 @@
 				});
 				document.addEventListener('mouseup', function() {
 					document.body.classList.remove('clicking');
+				});
+
+				// Initialize 3D Model Viewer for DRACO 4
+				window.addEventListener('load', function() {
+					if (typeof ModelViewer !== 'undefined') {
+						new ModelViewer('draco-model-viewer', 'assets/lowerbody_assembly/Assembly 1.obj', {
+							autoRotate: true,
+							autoRotateSpeed: 0.3,
+							backgroundColor: 0xF9F7F4,
+							enableZoom: true,
+							enablePan: false
+						});
+					}
 				});
 			</script>
 

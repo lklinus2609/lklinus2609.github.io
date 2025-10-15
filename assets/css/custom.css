@@ -252,45 +252,12 @@ li {
   position: absolute !important;
 }
 
-/* ==================== HERO SECTION ==================== */
-#intro {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  min-height: 70vh !important;
-  text-align: center !important;
-  padding: 180px var(--space-8) var(--space-8) !important;
-  margin-top: 0 !important;
-  position: relative !important;
-  background: linear-gradient(180deg, #F9F7F4 0%, #F4F2EF 100%) !important;
-}
-
-#intro h1 {
-  font-size: 72px !important;
-  font-weight: 800 !important;
-  margin-bottom: var(--space-4) !important;
-  color: var(--text-primary) !important;
-  white-space: nowrap !important;
-}
-
-#intro p {
-  font-size: 20px !important;
-  color: var(--text-secondary) !important;
-  max-width: 700px !important;
-  margin: var(--space-3) auto !important;
-}
-
-#intro .button {
-  margin-top: var(--space-8) !important;
-}
-
 /* ==================== MAIN CONTENT ==================== */
 #main {
   background-color: transparent !important;
   background-image: none !important;
   background: transparent !important;
-  padding-top: 0 !important;
+  padding-top: 100px !important;
 }
 
 .container {
@@ -407,11 +374,6 @@ body.clicking .card-flip {
   margin-bottom: var(--space-4) !important;
 }
 
-/* Featured Card Variant */
-.featured-card {
-  border-left: 4px solid var(--yellow-warm) !important;
-  background: linear-gradient(135deg, var(--white-pure) 0%, var(--yellow-light) 100%) !important;
-}
 
 /* ==================== GRID SYSTEM ==================== */
 .grid {
@@ -450,90 +412,6 @@ body.clicking .card-flip {
   box-shadow: var(--shadow-yellow) !important;
 }
 
-/* ==================== BUTTONS ==================== */
-.button {
-  display: inline-block !important;
-  padding: 16px 40px !important;
-  background: var(--yellow-warm) !important;
-  color: var(--text-primary) !important;
-  font-weight: 600 !important;
-  font-size: 15px !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  border-radius: 12px !important;
-  transition: all var(--duration-fast) var(--ease-smooth) !important;
-  border: 2px solid var(--yellow-warm) !important;
-  cursor: pointer !important;
-  box-shadow: var(--shadow-xs) !important;
-}
-
-.button:hover {
-  background: var(--yellow-deep) !important;
-  border-color: var(--yellow-deep) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: var(--shadow-yellow) !important;
-  color: var(--text-primary) !important;
-}
-
-.button.secondary {
-  background: transparent !important;
-  color: var(--yellow-warm) !important;
-}
-
-.button.secondary:hover {
-  background: var(--yellow-warm) !important;
-  color: var(--text-primary) !important;
-}
-
-/* ==================== FOOTER ==================== */
-#footer {
-  background: var(--surface-subtle) !important;
-  border-top: 1px solid var(--border-subtle) !important;
-  padding: var(--space-12) 0 var(--space-10) !important;
-}
-
-#footer .split.contact {
-  display: flex !important;
-  justify-content: center !important;
-  gap: var(--space-12) !important;
-  flex-wrap: wrap !important;
-  max-width: 900px !important;
-  margin: 0 auto !important;
-}
-
-#footer .split.contact > section {
-  flex: 0 1 auto !important;
-  text-align: center !important;
-  min-width: 200px !important;
-}
-
-#footer h3 {
-  color: var(--text-primary) !important;
-  font-size: 14px !important;
-  margin-bottom: var(--space-3) !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-}
-
-#footer p, #footer a {
-  color: var(--text-secondary) !important;
-  font-size: 16px !important;
-}
-
-#footer a:hover {
-  color: var(--yellow-warm) !important;
-}
-
-#footer .icons.alt {
-  display: flex !important;
-  justify-content: center !important;
-  gap: var(--space-4) !important;
-}
-
-#footer .icons.alt a {
-  font-size: 22px !important;
-}
 
 #copyright {
   background: var(--cream-base) !important;
@@ -575,6 +453,8 @@ body.clicking .card-flip {
 .mb-8 { margin-bottom: var(--space-8) !important; }
 .mb-10 { margin-bottom: var(--space-10) !important; }
 
+.mt-md { margin-top: var(--space-5) !important; }
+
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 1024px) {
   .grid-3 {
@@ -586,12 +466,6 @@ body.clicking .card-flip {
   h1 { font-size: 48px !important; }
   h2 { font-size: 36px !important; }
   h3 { font-size: 24px !important; }
-
-  #intro h1 {
-    font-size: 42px !important;
-    white-space: nowrap !important;
-  }
-  #intro { min-height: 50vh !important; }
 
   .grid-2, .grid-3 {
     grid-template-columns: 1fr !important;
@@ -619,18 +493,9 @@ body.clicking .card-flip {
 
 @media (max-width: 480px) {
   h1 { font-size: 36px !important; }
-  #intro h1 {
-    font-size: 32px !important;
-    white-space: nowrap !important;
-  }
 
   .card {
     padding: var(--space-6) !important;
-  }
-
-  .button {
-    padding: 14px 32px !important;
-    font-size: 14px !important;
   }
 }
 
@@ -646,10 +511,6 @@ body.clicking .card-flip {
   }
 }
 
-.fade-in-up {
-  animation: fadeInUp 0.6s var(--ease-smooth) !important;
-}
-
 .grid > * {
   animation: fadeInUp 0.6s var(--ease-smooth) !important;
 }
@@ -661,98 +522,8 @@ body.clicking .card-flip {
 .grid > *:nth-child(5) { animation-delay: 0.5s !important; }
 .grid > *:nth-child(6) { animation-delay: 0.6s !important; }
 
-/* ==================== SPECIAL EFFECTS ==================== */
-/* Removed grain texture - too dark */
-
-/* Kill template images */
-.image, .image.main, .image.fit {
-  display: none !important;
-}
-
-.actions.special {
-  display: none !important;
-}
-
-.post.featured {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
 /* ==================== ADDITIONAL OVERRIDES ==================== */
-/* NUCLEAR OPTION: Override everything to light theme */
-#wrapper, #wrapper *, #main, #main *, div, section {
-  background-image: none !important;
-}
 
-#wrapper {
-  background-color: transparent !important;
-}
-
-#main {
-  background-color: transparent !important;
-}
-
-/* Force light colors everywhere */
-* {
-  color: var(--text-primary) !important;
-}
-
-/* Reset specific text colors */
-p, li, span, div {
-  color: var(--text-secondary) !important;
-}
-
-h1, h2, h3, h4, h5, h6, strong {
-  color: var(--text-primary) !important;
-}
-
-/* Header positioning fix */
-#header {
-  background: transparent !important;
-  z-index: 999 !important;
-  padding-top: 80px !important;
-  text-align: center !important;
-  display: block !important;
-}
-
-#header .logo {
-  color: var(--text-primary) !important;
-  font-weight: 700 !important;
-  font-size: 24px !important;
-  display: inline-block !important;
-}
-
-/* Ensure proper z-index stacking */
-#nav {
-  z-index: 1000 !important;
-  position: fixed !important;
-}
-
-#intro {
-  z-index: 1 !important;
-  padding-top: 180px !important;
-}
-
-#main {
-  z-index: 2 !important;
-  position: relative !important;
-  background-color: #F9F7F4 !important;
-}
-
-/* Override any inline styles or JS-applied styles */
-body[style], #wrapper[style] {
-  background: #F9F7F4 !important;
-  background-color: #F9F7F4 !important;
-  background-image: none !important;
-}
-
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth !important;
-}
-
-/* Active nav link styling */
 #nav .links a.active {
   color: var(--yellow-warm) !important;
 }
