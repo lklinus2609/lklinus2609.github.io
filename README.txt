@@ -1,9 +1,9 @@
 # Linus Kim
 
-## About
+# About
 Graduate Robotics Researcher at UT Austin Human Centered Robotics Lab, pursuing M.S. in Mechanical Engineering with focus on Robotics.
 
-## Contact
+# Contact
 - Email: lklinus0926@gmail.com
 - LinkedIn: linkedin.com/in/linuskim2000
 - GitHub: github.com/lklinus2609
