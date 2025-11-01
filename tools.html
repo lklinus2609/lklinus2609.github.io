@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>Engineering Tools | Linus Kim</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+		<link rel="stylesheet" href="assets/css/custom.css?v=9" />
+		<link rel="stylesheet" href="assets/css/tools.css?v=1" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html#intro">About</a></li>
+							<li><a href="index.html#research">Research</a></li>
+							<li><a href="index.html#projects">Projects</a></li>
+							<li><a href="tools.html" class="active">Tools</a></li>
+							<li><a href="index.html#contact">Contact</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/linuskim2000/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="https://github.com/lklinus2609" target="_blank"><i class="fab fa-github"></i></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Tools Header -->
+						<section id="tools-header" class="container">
+							<h2 class="section-title">Engineering Tools</h2>
+							<p style="text-align: center; margin-bottom: var(--space-10); font-size: 18px; line-height: 1.8; color: var(--text-secondary);">
+								Interactive calculators and generators for mechanical design
+							</p>
+						</section>
+
+						<!-- Cycloidal Gear Generator -->
+						<section id="cycloidal-generator" class="container">
+							<div class="card" style="max-width: 1200px; margin: 0 auto;">
+								<h3>Cycloidal Gear Generator</h3>
+								<p style="margin-bottom: var(--space-6); color: var(--text-secondary);">
+									Generate custom cycloidal gear profiles for compact, high-ratio gearboxes. Perfect for robotics applications where torque density matters.
+								</p>
+
+								<div class="tool-container">
+									<!-- Input Panel -->
+									<div class="input-panel">
+										<h4 style="margin-bottom: var(--space-4); color: var(--text-primary);">Input Parameters</h4>
+
+										<form id="gear-form">
+											<div class="form-group">
+												<label for="roller_diameter">
+													Roller Diameter (mm)
+													<span class="tooltip" title="Diameter of each roller pin">?</span>
+												</label>
+												<input type="number" id="roller_diameter" step="0.01" min="0.1" value="0.8" required>
+											</div>
+
+											<div class="form-group">
+												<label for="rollers_num">
+													Number of Rollers
+													<span class="tooltip" title="Total number of roller pins (min 3)">?</span>
+												</label>
+												<input type="number" id="rollers_num" step="1" min="3" value="8" required>
+											</div>
+
+											<div class="form-group">
+												<label for="cycloid_outer_diameter">
+													Outer Diameter (mm)
+													<span class="tooltip" title="Target outer diameter of cycloidal disc">?</span>
+												</label>
+												<input type="number" id="cycloid_outer_diameter" step="0.01" min="0.1" value="8" required>
+											</div>
+
+											<div class="form-group">
+												<label for="input_shaft_diameter">
+													Input Shaft Diameter (mm)
+													<span class="tooltip" title="Diameter of center input shaft hole">?</span>
+												</label>
+												<input type="number" id="input_shaft_diameter" step="0.01" min="0.1" value="1" required>
+											</div>
+
+											<div class="form-group">
+												<label for="cycloidal_modulus">
+													Cycloidal Modulus
+													<span class="tooltip" title="Ratio parameter affecting gear profile (typically 0.1-0.3)">?</span>
+												</label>
+												<input type="number" id="cycloidal_modulus" step="0.01" min="0.01" max="1" value="0.2" required>
+											</div>
+
+											<div class="button-group">
+												<button type="submit" class="btn btn-primary">
+													<i class="fas fa-eye"></i> Generate
+												</button>
+												<button type="button" id="download-btn" class="btn btn-secondary" disabled>
+													<i class="fas fa-download"></i> Download DXF
+												</button>
+											</div>
+										</form>
+									</div>
+
+									<!-- Preview Panel -->
+									<div class="preview-panel">
+										<h4 style="margin-bottom: var(--space-4); color: var(--text-primary);">Preview & Results</h4>
+
+										<div id="preview-container">
+											<div id="preview-placeholder">
+												<i class="fas fa-gear fa-spin" style="font-size: 48px; color: var(--accent-primary); opacity: 0.3;"></i>
+												<p style="color: var(--text-tertiary); margin-top: var(--space-4);">Generating preview...</p>
+											</div>
+										</div>
+
+										<!-- Calculated Parameters -->
+										<div id="calculated-params" style="display: none; margin-top: var(--space-6);">
+											<h5 style="margin-bottom: var(--space-3); color: var(--text-primary);">Calculated Parameters</h5>
+											<div class="param-grid">
+												<div class="param-item">
+													<span class="param-label">Eccentricity:</span>
+													<span class="param-value" id="param-ecc">-</span>
+												</div>
+												<div class="param-item">
+													<span class="param-label">Cavity Number:</span>
+													<span class="param-value" id="param-cav">-</span>
+												</div>
+												<div class="param-item">
+													<span class="param-label">Actual Outer Ø:</span>
+													<span class="param-value" id="param-outer">-</span>
+												</div>
+												<div class="param-item">
+													<span class="param-label">Wave Gen Radius:</span>
+													<span class="param-value" id="param-wave">-</span>
+												</div>
+											</div>
+										</div>
+
+										<!-- Status Messages -->
+										<div id="status-message" class="status-message" style="display: none;"></div>
+									</div>
+								</div>
+
+								<!-- Info Section -->
+								<div class="info-section" style="margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--border-color);">
+									<h4 style="margin-bottom: var(--space-4);">What is a Cycloidal Drive with Rolling Element?</h4>
+									<p style="line-height: 1.8; color: var(--text-secondary);">
+										A cycloidal drive with rolling element uses an eccentric input to drive a cycloidal disc that engages with a ring of rollers,
+										converting high-speed low-torque input into low-speed high-torque output through the rolling contact between the disc and rollers.
+										This mechanism offers minimal backlash, high torque capacity, and compact size, which is ideal for robotic applications.
+									</p>
+									<div class="mt-md">
+										<span class="tag">Reduction Ratio = Rollers</span>
+										<span class="tag">Minimal Backlash</span>
+										<span class="tag">High Torque Density</span>
+										<span class="tag">Compact Design</span>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer" style="margin-top: var(--space-12); padding: var(--space-8) 0; text-align: center; color: var(--text-tertiary);">
+						<p>&copy; 2025 Linus Kim. Built with curiosity and caffeine.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/cycloidal-gear.js?v=1"></script>
+		<script src="assets/js/tools.js?v=2"></script>
+
+	</body>
+</html>
