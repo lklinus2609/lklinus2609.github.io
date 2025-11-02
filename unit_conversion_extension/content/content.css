@@ -1,0 +1,71 @@
+/* Styling for converted units */
+
+.unit-converter-converted {
+  color: #2563eb;
+  font-weight: 500;
+  padding: 0 2px;
+  border-radius: 2px;
+  background-color: rgba(37, 99, 235, 0.05);
+  white-space: nowrap;
+  font-size: 1em;
+}
+
+/* Styling for converted units without highlighting */
+.unit-converter-converted-no-highlight {
+  color: inherit;
+  font-weight: normal;
+  padding: 0;
+  background-color: transparent;
+  white-space: nowrap;
+  font-size: 1em;
+}
+
+.unit-converter-original {
+  position: relative;
+}
+
+.unit-converter-replaced {
+  color: #059669;
+  background-color: rgba(5, 150, 105, 0.05);
+  padding: 1px 3px;
+  border-radius: 2px;
+  cursor: help;
+}
+
+.unit-converter-replaced:hover::after {
+  content: "Original: " attr(data-original);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f2937;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 10000;
+  margin-bottom: 4px;
+}
+
+.unit-converter-tooltip {
+  border-bottom: 1px dotted #6b7280;
+  cursor: help;
+}
+
+/* Make conversions subtle but visible */
+@media (prefers-color-scheme: dark) {
+  .unit-converter-converted {
+    color: #60a5fa;
+    background-color: rgba(96, 165, 250, 0.1);
+  }
+
+  .unit-converter-replaced {
+    color: #34d399;
+    background-color: rgba(52, 211, 153, 0.1);
+  }
+
+  .unit-converter-tooltip {
+    border-bottom-color: #9ca3af;
+  }
+}

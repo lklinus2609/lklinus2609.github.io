@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Converter Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Unit Converter Settings</h1>
+      <p class="subtitle">Configure how units are converted on webpages</p>
+    </header>
+
+    <main>
+      <section class="settings-section">
+        <h2>Conversion Preferences</h2>
+
+        <div class="setting-group">
+          <label for="conversionDirection">Conversion Direction</label>
+          <select id="conversionDirection" class="select-input">
+            <option value="both">Both (Imperial ↔ Metric)</option>
+            <option value="imperial-to-metric">Imperial → Metric only</option>
+            <option value="metric-to-imperial">Metric → Imperial only</option>
+          </select>
+          <p class="setting-description">Choose which direction to convert units</p>
+        </div>
+
+        <div class="setting-group">
+          <label for="preferredMetricLength">Preferred Metric Length Unit</label>
+          <select id="preferredMetricLength" class="select-input">
+            <option value="millimeters">Millimeters (mm)</option>
+            <option value="centimeters">Centimeters (cm)</option>
+            <option value="meters">Meters (m)</option>
+          </select>
+          <p class="setting-description">Default metric unit for converting inches/feet</p>
+        </div>
+
+        <div class="setting-group">
+          <label for="precision">Decimal Precision</label>
+          <input type="number" id="precision" class="number-input" min="0" max="6" step="1">
+          <p class="setting-description">Number of decimal places (0-6)</p>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2>Display Options</h2>
+
+        <div class="setting-group">
+          <label for="displayMode">Display Mode</label>
+          <select id="displayMode" class="select-input">
+            <option value="inline">Inline (show both values)</option>
+            <option value="replace">Replace (show converted only)</option>
+            <option value="tooltip">Tooltip (hover to see)</option>
+          </select>
+          <p class="setting-description">How to display converted values</p>
+          <div class="display-examples">
+            <div class="example">
+              <strong>Inline:</strong> 5 inches <span class="example-conversion">[127mm]</span>
+            </div>
+            <div class="example">
+              <strong>Replace:</strong> <span class="example-replaced">127mm</span> (hover to see original)
+            </div>
+            <div class="example">
+              <strong>Tooltip:</strong> <span class="example-tooltip">5 inches</span> (hover to see conversion)
+            </div>
+          </div>
+        </div>
+
+        <div class="setting-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="convertTables">
+            <span>Convert table values</span>
+          </label>
+          <p class="setting-description">Auto-detect units in table headers and convert cell values</p>
+        </div>
+
+        <div class="setting-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="convertInlineText">
+            <span>Convert inline text</span>
+          </label>
+          <p class="setting-description">Convert measurements in regular text (may impact performance on large pages)</p>
+        </div>
+
+        <div class="setting-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="highlightConversions">
+            <span>Highlight converted values</span>
+          </label>
+          <p class="setting-description">Add visual styling to make conversions stand out</p>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2>Extension Control</h2>
+
+        <div class="setting-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="enabled">
+            <span>Enable auto-conversion</span>
+          </label>
+          <p class="setting-description">Automatically convert units on all webpages</p>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button id="resetBtn" class="btn btn-secondary">Reset to Defaults</button>
+      </div>
+
+      <div id="saveMessage" class="save-message hidden">Settings saved!</div>
+    </main>
+
+    <footer>
+      <p>Automatic Unit Converter v1.0.0</p>
+    </footer>
+  </div>
+
+  <script src="../utils/storage.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

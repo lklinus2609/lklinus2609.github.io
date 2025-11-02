@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Converter</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Unit Converter</h1>
+      <p class="subtitle">Auto-convert units on webpages</p>
+    </header>
+
+    <div class="toggle-section">
+      <label class="toggle">
+        <input type="checkbox" id="enableToggle">
+        <span class="toggle-slider"></span>
+      </label>
+      <div class="toggle-label">
+        <span id="statusText">Enabled</span>
+      </div>
+    </div>
+
+    <div class="quick-actions">
+      <button id="rescanBtn" class="btn btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.65 2.35C12.2 0.9 10.21 0 8 0C3.58 0 0.01 3.58 0.01 8C0.01 12.42 3.58 16 8 16C11.73 16 14.84 13.45 15.73 10H13.65C12.83 12.33 10.61 14 8 14C4.69 14 2 11.31 2 8C2 4.69 4.69 2 8 2C9.66 2 11.14 2.69 12.22 3.78L9 7H16V0L13.65 2.35Z" fill="currentColor"/>
+        </svg>
+        Rescan Page
+      </button>
+    </div>
+
+    <div class="settings-link">
+      <button id="settingsBtn" class="btn btn-text">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.5 8.38l-1.42-.37c-.11-.41-.27-.79-.48-1.16l.73-1.24-1.09-1.09-1.24.73c-.37-.21-.75-.37-1.16-.48L9.62 3.5h-1.54l-.37 1.42c-.41.11-.79.27-1.16.48l-1.24-.73-1.09 1.09.73 1.24c-.21.37-.37.75-.48 1.16L3.5 8.38v1.54l1.42.37c.11.41.27.79.48 1.16l-.73 1.24 1.09 1.09 1.24-.73c.37.21.75.37 1.16.48l.37 1.42h1.54l.37-1.42c.41-.11.79-.27 1.16-.48l1.24.73 1.09-1.09-.73-1.24c.21-.37.37-.75.48-1.16l1.42-.37v-1.54zM8 11.5c-1.93 0-3.5-1.57-3.5-3.5S6.07 4.5 8 4.5s3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" fill="currentColor"/>
+        </svg>
+        Settings
+      </button>
+    </div>
+
+    <footer>
+      <p class="version">v1.0.0</p>
+    </footer>
+  </div>
+
+  <script src="../utils/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
