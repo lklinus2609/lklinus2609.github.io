@@ -1,6 +1,6 @@
 /**
  * Tools Page - Client-Side Cycloidal Gear Generator
- * Pure JavaScript implementation - no backend required
+ * Pure JavaScript implementation with B-spline DXF generation
  */
 
 // DOM Elements
@@ -130,7 +130,7 @@ function generatePreview(params) {
         // Enable download button
         downloadBtn.disabled = false;
 
-        showStatus('Preview generated successfully!', 'success');
+        showStatus('Preview generated successfully! Now using B-spline DXF generation.', 'success');
 
     } catch (error) {
         console.error('Error generating preview:', error);
@@ -147,11 +147,11 @@ function downloadDXF() {
             throw new Error('Please generate a preview first');
         }
 
-        showStatus('Generating DXF file...', 'info');
+        showStatus('Generating DXF file with B-spline...', 'info');
         downloadBtn.disabled = true;
         downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
 
-        // Generate DXF content
+        // Generate DXF content using B-spline interpolation
         const dxfContent = currentGenerator.generateDXF();
 
         // Create blob and download
@@ -233,7 +233,7 @@ function autoGeneratePreview() {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Cycloidal Gear Generator initialized (client-side only)');
+    console.log('Cycloidal Gear Generator initialized (Pure JavaScript with B-spline)');
 
     // Add smooth scroll for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

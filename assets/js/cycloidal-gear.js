@@ -294,7 +294,9 @@ class CycloidalGearGenerator {
     generateDXF() {
         const dxf = new DXFWriter();
 
-        // Add Cycloidal Ring Gear as polyline (high resolution)
+        // Add Cycloidal Ring Gear as high-resolution polyline
+        // Note: B-spline interpolation with 1000+ points causes numerical issues (singular matrix)
+        // Using LWPOLYLINE is more reliable for complex curves
         const cycloidPath = this.cycloidPoints(1000);
         dxf.addPolyline(cycloidPath, 'Cycloidal_Ring_Gear', 5, true);
 
@@ -319,13 +321,237 @@ class CycloidalGearGenerator {
 }
 
 /**
- * Simple DXF Writer Class
- * Generates DXF R2010 format files
+ * B-Spline Interpolation
+ * Implements cubic B-spline interpolation similar to ezdxf's global_bspline_interpolation
  */
+class BSplineInterpolation {
+    /**
+     * Create a cubic B-spline from interpolation points using chord parameterization
+     * @param {Array} points - Array of {x, y} points
+     * @param {number} degree - Degree of the spline (typically 3 for cubic)
+     * @returns {Object} - {controlPoints, knots, degree}
+     */
+    static globalBSplineInterpolation(points, degree = 3) {
+        const n = points.length - 1; // Number of intervals (points includes duplicate for closure)
+
+        // Calculate parameters using chord length method
+        const parameters = this.chordLengthParameterization(points);
+
+        // Generate knot vector for cubic B-spline
+        const knots = this.generateKnotVector(parameters, degree, n);
+
+        // Solve for control points using matrix equation
+        const controlPoints = this.solveControlPoints(points, parameters, knots, degree);
+
+        return {
+            controlPoints,
+            knots,
+            degree
+        };
+    }
+
+    /**
+     * Chord length parameterization
+     */
+    static chordLengthParameterization(points) {
+        const n = points.length;
+        const parameters = [0];
+        let totalLength = 0;
+
+        // Calculate chord lengths
+        const chordLengths = [];
+        for (let i = 1; i < n; i++) {
+            const dx = points[i].x - points[i - 1].x;
+            const dy = points[i].y - points[i - 1].y;
+            const length = Math.sqrt(dx * dx + dy * dy);
+            chordLengths.push(length);
+            totalLength += length;
+        }
+
+        // Normalize to [0, 1]
+        let accumulated = 0;
+        for (let i = 0; i < chordLengths.length; i++) {
+            accumulated += chordLengths[i];
+            parameters.push(accumulated / totalLength);
+        }
+
+        return parameters;
+    }
+
+    /**
+     * Generate knot vector for B-spline
+     */
+    static generateKnotVector(parameters, degree, n) {
+        const m = n + degree + 1;
+        const knots = [];
+
+        // First degree+1 knots are 0
+        for (let i = 0; i <= degree; i++) {
+            knots.push(0);
+        }
+
+        // Middle knots using averaging
+        for (let i = 1; i < n - degree + 1; i++) {
+            let sum = 0;
+            for (let j = i; j < i + degree; j++) {
+                sum += parameters[j];
+            }
+            knots.push(sum / degree);
+        }
+
+        // Last degree+1 knots are 1
+        for (let i = 0; i <= degree; i++) {
+            knots.push(1);
+        }
+
+        return knots;
+    }
+
+    /**
+     * Solve for control points using basis functions
+     */
+    static solveControlPoints(points, parameters, knots, degree) {
+        const n = points.length - 1;
+
+        // Build matrix A and solve Ax = B for x and y separately
+        const matrixSize = n + 1;
+        const A = Array(matrixSize).fill(0).map(() => Array(matrixSize).fill(0));
+        const Bx = Array(matrixSize).fill(0);
+        const By = Array(matrixSize).fill(0);
+
+        // Fill matrix with basis function values
+        const memo = {}; // Shared memoization cache
+        for (let i = 0; i <= n; i++) {
+            for (let j = 0; j <= n; j++) {
+                A[i][j] = this.basisFunction(j, degree, parameters[i], knots, memo);
+            }
+            Bx[i] = points[i].x;
+            By[i] = points[i].y;
+        }
+
+        // Solve linear system
+        const controlX = this.solveLinearSystem(A, Bx);
+        const controlY = this.solveLinearSystem(A, By);
+
+        // Combine into control points
+        const controlPoints = [];
+        for (let i = 0; i < controlX.length; i++) {
+            controlPoints.push({ x: controlX[i], y: controlY[i] });
+        }
+
+        return controlPoints;
+    }
+
+    /**
+     * Cox-de Boor recursion formula for B-spline basis functions
+     * Memoized version to avoid stack overflow
+     */
+    static basisFunction(i, p, u, knots, memo = {}) {
+        const key = `${i}_${p}_${u}`;
+        if (memo[key] !== undefined) return memo[key];
+
+        if (p === 0) {
+            const result = (u >= knots[i] && u < knots[i + 1]) ? 1.0 : 0.0;
+            memo[key] = result;
+            return result;
+        }
+
+        let left = 0.0;
+        const denomLeft = knots[i + p] - knots[i];
+        if (Math.abs(denomLeft) > 1e-10) {
+            left = ((u - knots[i]) / denomLeft) * this.basisFunction(i, p - 1, u, knots, memo);
+        }
+
+        let right = 0.0;
+        const denomRight = knots[i + p + 1] - knots[i + 1];
+        if (Math.abs(denomRight) > 1e-10) {
+            right = ((knots[i + p + 1] - u) / denomRight) * this.basisFunction(i + 1, p - 1, u, knots, memo);
+        }
+
+        const result = left + right;
+        memo[key] = result;
+        return result;
+    }
+
+    /**
+     * Solve linear system Ax = b using Gaussian elimination with partial pivoting
+     */
+    static solveLinearSystem(A, b) {
+        const n = b.length;
+        const augmented = A.map((row, i) => [...row, b[i]]);
+
+        // Forward elimination with partial pivoting
+        for (let i = 0; i < n; i++) {
+            // Find pivot
+            let maxRow = i;
+            for (let k = i + 1; k < n; k++) {
+                if (Math.abs(augmented[k][i]) > Math.abs(augmented[maxRow][i])) {
+                    maxRow = k;
+                }
+            }
+
+            // Check for singular matrix
+            if (Math.abs(augmented[maxRow][i]) < 1e-10) {
+                console.error('Matrix is singular or nearly singular at row', i);
+                return Array(n).fill(NaN);
+            }
+
+            // Swap rows
+            [augmented[i], augmented[maxRow]] = [augmented[maxRow], augmented[i]];
+
+            // Eliminate column
+            for (let k = i + 1; k < n; k++) {
+                const factor = augmented[k][i] / augmented[i][i];
+                for (let j = i; j <= n; j++) {
+                    augmented[k][j] -= factor * augmented[i][j];
+                }
+            }
+        }
+
+        // Back substitution
+        const x = Array(n).fill(0);
+        for (let i = n - 1; i >= 0; i--) {
+            if (Math.abs(augmented[i][i]) < 1e-10) {
+                console.error('Division by zero or nearly zero at row', i);
+                return Array(n).fill(NaN);
+            }
+            x[i] = augmented[i][n];
+            for (let j = i + 1; j < n; j++) {
+                x[i] -= augmented[i][j] * x[j];
+            }
+            x[i] /= augmented[i][i];
+        }
+
+        return x;
+    }
+}
+
 class DXFWriter {
     constructor() {
         this.entities = [];
         this.layers = new Set();
+        this.handleCounter = 0x100; // Start entity handles at 256
+    }
+
+    /**
+     * Format group code with proper right-alignment (3 characters)
+     */
+    gc(code) {
+        return code.toString().padStart(3, ' ');
+    }
+
+    /**
+     * Add line ending (Windows style \r\n for compatibility)
+     */
+    endl() {
+        return '\n';
+    }
+
+    /**
+     * Get next entity handle in hex format
+     */
+    nextHandle() {
+        return (this.handleCounter++).toString(16).toUpperCase();
     }
 
     addCircle(cx, cy, radius, layer = '0', color = 7) {
@@ -353,25 +579,333 @@ class DXFWriter {
 
     toString() {
         let dxf = '';
+        const gc = (code) => this.gc(code);
+        const nl = this.endl();
 
         // Header
-        dxf += '0\nSECTION\n2\nHEADER\n';
-        dxf += '9\n$ACADVER\n1\nAC1024\n'; // AutoCAD 2010
-        dxf += '9\n$INSUNITS\n70\n4\n'; // Millimeters
-        dxf += '0\nENDSEC\n';
+        dxf += `  0
+SECTION
+  2
+HEADER
+  9
+$ACADVER
+  1
+AC1024
+  9
+$HANDSEED
+  5
+${this.nextHandle()}
+  0
+ENDSEC
+`;
 
-        // Tables (Layers)
-        dxf += '0\nSECTION\n2\nTABLES\n';
-        dxf += '0\nTABLE\n2\nLAYER\n70\n' + this.layers.size + '\n';
+        // Classes
+        dxf += `  0
+SECTION
+  2
+CLASSES
+  0
+ENDSEC
+`;
 
+        // Tables
+        dxf += `  0
+SECTION
+  2
+TABLES
+  0
+TABLE
+  2
+LTYPE
+  5
+2
+330
+0
+100
+AcDbSymbolTable
+ 70
+1
+  0
+LTYPE
+  5
+14
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+Continuous
+ 70
+0
+  3
+Solid line
+ 72
+65
+ 73
+0
+ 40
+0.0
+  0
+ENDTAB
+`;
+
+        // LAYER table (Required - layers)
+        const layerCount = this.layers.size + 1; // +1 for layer "0"
+        dxf += `${gc(0)}${nl}TABLE${nl}${gc(2)}${nl}LAYER${nl}${gc(5)}${nl}1${nl}${gc(330)}${nl}0${nl}${gc(100)}${nl}AcDbSymbolTable${nl}${gc(70)}${nl}${layerCount}${nl}`;
+
+        // Layer "0" (required base layer)
+        dxf += `${gc(0)}${nl}LAYER${nl}${gc(5)}${nl}10${nl}${gc(330)}${nl}1${nl}${gc(100)}${nl}AcDbSymbolTableRecord${nl}${gc(100)}${nl}AcDbLayerTableRecord${nl}${gc(2)}${nl}0${nl}${gc(70)}${nl}0${nl}${gc(62)}${nl}7${nl}${gc(6)}${nl}Continuous${nl}`;
+
+        // User layers
+        let layerHandle = 0x20;
         this.layers.forEach(layer => {
-            dxf += '0\nLAYER\n2\n' + layer + '\n70\n0\n62\n7\n6\nContinuous\n';
+            const handle = (layerHandle++).toString(16).toUpperCase();
+            dxf += `${gc(0)}${nl}LAYER${nl}${gc(5)}${nl}${handle}${nl}${gc(330)}${nl}1${nl}${gc(100)}${nl}AcDbSymbolTableRecord${nl}${gc(100)}${nl}AcDbLayerTableRecord${nl}${gc(2)}${nl}${layer}${nl}${gc(70)}${nl}0${nl}${gc(62)}${nl}7${nl}${gc(6)}${nl}Continuous${nl}`;
         });
 
-        dxf += '0\nENDTAB\n0\nENDSEC\n';
+        dxf += `${gc(0)}${nl}ENDTAB${nl}`;
+
+        dxf += `  0
+TABLE
+  2
+STYLE
+  5
+5
+330
+0
+100
+AcDbSymbolTable
+ 70
+1
+  0
+STYLE
+  5
+29
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+Standard
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+txt
+  4
+
+  0
+ENDTAB
+  0
+TABLE
+  2
+VIEW
+  5
+7
+330
+0
+100
+AcDbSymbolTable
+ 70
+0
+  0
+ENDTAB
+  0
+TABLE
+  2
+UCS
+  5
+6
+330
+0
+100
+AcDbSymbolTable
+ 70
+0
+  0
+ENDTAB
+  0
+TABLE
+  2
+APPID
+  5
+3
+330
+0
+100
+AcDbSymbolTable
+ 70
+1
+  0
+APPID
+  5
+2A
+330
+3
+100
+AcDbSymbolTableRecord
+100
+AcDbRegAppTableRecord
+  2
+ACAD
+ 70
+0
+  0
+ENDTAB
+  0
+TABLE
+  2
+BLOCK_RECORD
+  5
+9
+330
+0
+100
+AcDbSymbolTable
+ 70
+2
+  0
+BLOCK_RECORD
+  5
+17
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbBlockTableRecord
+  2
+*Model_Space
+ 70
+0
+280
+1
+281
+0
+  0
+BLOCK_RECORD
+  5
+1B
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbBlockTableRecord
+  2
+*Paper_Space
+ 70
+0
+280
+1
+281
+0
+  0
+ENDTAB
+  0
+ENDSEC
+`;
+
+        // Blocks
+        dxf += `  0
+SECTION
+  2
+BLOCKS
+  0
+BLOCK
+  5
+18
+330
+17
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockBegin
+  2
+*Model_Space
+ 70
+0
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  3
+*Model_Space
+  1
+
+  0
+ENDBLK
+  5
+19
+330
+17
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockEnd
+  0
+BLOCK
+  5
+1C
+330
+1B
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockBegin
+  2
+*Paper_Space
+ 70
+0
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  3
+*Paper_Space
+  1
+
+  0
+ENDBLK
+  5
+1D
+330
+1B
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockEnd
+  0
+ENDSEC
+`;
 
         // Entities
-        dxf += '0\nSECTION\n2\nENTITIES\n';
+        dxf += `${gc(0)}${nl}SECTION${nl}${gc(2)}${nl}ENTITIES${nl}`;
 
         this.entities.forEach(entity => {
             if (entity.type === 'CIRCLE') {
@@ -381,56 +915,70 @@ class DXFWriter {
             }
         });
 
-        dxf += '0\nENDSEC\n';
+        dxf += `${gc(0)}${nl}ENDSEC${nl}`;
+
+        // Objects
+        dxf += `  0
+SECTION
+  2
+OBJECTS
+  0
+DICTIONARY
+  5
+A
+330
+0
+100
+AcDbDictionary
+281
+1
+  3
+ACAD_GROUP
+350
+C
+  0
+DICTIONARY
+  5
+C
+330
+A
+100
+AcDbDictionary
+281
+1
+  0
+ENDSEC
+`;
 
         // EOF
-        dxf += '0\nEOF\n';
+        dxf += `${gc(0)}${nl}EOF${nl}`;
 
         return dxf;
     }
 
     circleToString(circle) {
-        return `0
-CIRCLE
-8
-${circle.layer}
-62
-${circle.color}
-10
-${circle.cx.toFixed(6)}
-20
-${circle.cy.toFixed(6)}
-30
-0.0
-40
-${circle.radius.toFixed(6)}
-`;
+        const gc = (code) => this.gc(code);
+        const nl = this.endl();
+        const handle = this.nextHandle();
+        return `${gc(0)}${nl}CIRCLE${nl}${gc(5)}${nl}${handle}${nl}${gc(100)}${nl}AcDbEntity${nl}${gc(8)}${nl}${circle.layer}${nl}${gc(62)}${nl}${circle.color}${nl}${gc(100)}${nl}AcDbCircle${nl}${gc(10)}${nl}${circle.cx.toFixed(6)}${nl}${gc(20)}${nl}${circle.cy.toFixed(6)}${nl}${gc(30)}${nl}0.0${nl}${gc(40)}${nl}${circle.radius.toFixed(6)}${nl}`;
     }
 
     polylineToString(polyline) {
-        let dxf = `0
-LWPOLYLINE
-8
-${polyline.layer}
-62
-${polyline.color}
-90
-${polyline.points.length}
-70
-${polyline.closed ? 1 : 0}
-`;
+        const gc = (code) => this.gc(code);
+        const nl = this.endl();
+        const handle = this.nextHandle();
+
+        // Match ezdxf LWPOLYLINE format exactly
+        let dxf = `${gc(0)}${nl}LWPOLYLINE${nl}${gc(5)}${nl}${handle}${nl}${gc(100)}${nl}AcDbEntity${nl}${gc(8)}${nl}${polyline.layer}${nl}${gc(62)}${nl}${polyline.color}${nl}${gc(100)}${nl}AcDbPolyline${nl}${gc(90)}${nl}${polyline.points.length}${nl}${gc(70)}${nl}${polyline.closed ? 1 : 0}${nl}`;
 
         polyline.points.forEach(point => {
-            dxf += `10
-${point.x.toFixed(6)}
-20
-${point.y.toFixed(6)}
-`;
+            dxf += `${gc(10)}${nl}${point.x.toFixed(6)}${nl}${gc(20)}${nl}${point.y.toFixed(6)}${nl}`;
         });
 
         return dxf;
     }
 }
+
 
 // Export for use in other scripts
 if (typeof module !== 'undefined' && module.exports) {

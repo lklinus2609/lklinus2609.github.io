@@ -62,7 +62,7 @@
 													Roller Diameter (mm)
 													<span class="tooltip" title="Diameter of each roller pin">?</span>
 												</label>
-												<input type="number" id="roller_diameter" step="any" min="0.1" value="0.8" required>
+												<input type="number" id="roller_diameter" step="0.01" min="0.1" value="0.8" required>
 											</div>
 
 											<div class="form-group">
@@ -78,7 +78,7 @@
 													Outer Diameter (mm)
 													<span class="tooltip" title="Target outer diameter of cycloidal disc">?</span>
 												</label>
-												<input type="number" id="cycloid_outer_diameter" step="any" min="0.1" value="8" required>
+												<input type="number" id="cycloid_outer_diameter" step="0.01" min="0.1" value="8" required>
 											</div>
 
 											<div class="form-group">
@@ -86,7 +86,7 @@
 													Input Shaft Diameter (mm)
 													<span class="tooltip" title="Diameter of center input shaft hole">?</span>
 												</label>
-												<input type="number" id="input_shaft_diameter" step="any" min="0.1" value="1" required>
+												<input type="number" id="input_shaft_diameter" step="0.01" min="0.1" value="1" required>
 											</div>
 
 											<div class="form-group">
@@ -94,7 +94,7 @@
 													Cycloidal Modulus
 													<span class="tooltip" title="Ratio parameter affecting gear profile (typically 0.1-0.3)">?</span>
 												</label>
-												<input type="number" id="cycloidal_modulus" step="any" min="0.01" max="1" value="0.2" required>
+												<input type="number" id="cycloidal_modulus" step="0.01" min="0.01" max="1" value="0.2" required>
 											</div>
 
 											<div class="button-group">
@@ -175,8 +175,8 @@
 			</div>
 
 		<!-- Scripts -->
-		<script src="assets/js/cycloidal-gear.js?v=1"></script>
-		<script src="assets/js/tools.js?v=2"></script>
+		<script src="assets/js/cycloidal-gear.js?v=11"></script>
+		<script src="assets/js/tools.js?v=11"></script>
 
 	</body>
 </html>

@@ -2,9 +2,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import ezdxf
 
+from ezdxf.math import Vec3, global_bspline_interpolation
+
 # Parameters (You can adjust these as needed)
-roller_diameter = 0.8  # mm
-rollers_num = 8
+roller_diameter = 1  # mm
+rollers_num = 10
 cycloid_outer_diameter = 8 # mm (will be ignored if lower then minimum)
 input_shaft_diameter = 1  # mm
 cycloidal_modulus = 0.2
@@ -54,7 +56,6 @@ def export_to_dxf(filename, ecc, roll_r, wave_gen_r, rollers_num, cav_num, cy_r,
     points_array = cycloid_reduced[:-1]  # Exclude duplicate closing point
 
     # Convert to Vec3 for B-spline interpolation
-    from ezdxf.math import Vec3, global_bspline_interpolation
     points = [Vec3(p[0], p[1], 0) for p in points_array]
 
     # Add first point at the end to force closure
