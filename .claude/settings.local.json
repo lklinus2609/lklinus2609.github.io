@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python cycloidal.py:*)",
+      "Bash(node:*)",
+      "Bash(python:*)",
+      "WebSearch",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:verbnurbs.com)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

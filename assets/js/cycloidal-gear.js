@@ -294,11 +294,31 @@ class CycloidalGearGenerator {
     generateDXF() {
         const dxf = new DXFWriter();
 
-        // Add Cycloidal Ring Gear as high-resolution polyline
-        // Note: B-spline interpolation with 1000+ points causes numerical issues (singular matrix)
-        // Using LWPOLYLINE is more reliable for complex curves
+        // Add Cycloidal Ring Gear as B-spline using verb-nurbs
+        // Generate points (without duplicate - verb handles closure)
         const cycloidPath = this.cycloidPoints(1000);
-        dxf.addPolyline(cycloidPath, 'Cycloidal_Ring_Gear', 5, true);
+
+        // Convert to verb format [[x, y], ...]
+        const points = cycloidPath.slice(0, -1).map(p => [p.x, p.y]); // Remove duplicate closing point
+
+        // Use verb-nurbs to create interpolated B-spline curve
+        if (typeof verb !== 'undefined') {
+            try {
+                const curve = verb.geom.NurbsCurve.byPoints(points, 3); // degree 3 (cubic)
+                const controlPoints = curve.controlPoints();
+                const knots = curve.knots();
+                const degree = curve.degree();
+
+                dxf.addSpline(controlPoints, knots, degree, 'Cycloidal_Ring_Gear', 5, false);
+            } catch(e) {
+                console.warn('verb-nurbs failed, falling back to polyline:', e.message);
+                dxf.addPolyline(cycloidPath, 'Cycloidal_Ring_Gear', 5, true);
+            }
+        } else {
+            // Fallback to polyline if verb is not loaded
+            console.warn('verb-nurbs not loaded, using polyline');
+            dxf.addPolyline(cycloidPath, 'Cycloidal_Ring_Gear', 5, true);
+        }
 
         // Add Separator circles
         dxf.addCircle(0, 0, this.sepOuterRadius, 'Separator_Outer', 3);
@@ -573,6 +593,19 @@ class DXFWriter {
             layer,
             color,
             points,
+            closed
+        });
+    }
+
+    addSpline(controlPoints, knots, degree, layer = '0', color = 7, closed = false) {
+        this.layers.add(layer);
+        this.entities.push({
+            type: 'SPLINE',
+            layer,
+            color,
+            controlPoints,
+            knots,
+            degree,
             closed
         });
     }
@@ -912,6 +945,8 @@ ENDSEC
                 dxf += this.circleToString(entity);
             } else if (entity.type === 'LWPOLYLINE') {
                 dxf += this.polylineToString(entity);
+            } else if (entity.type === 'SPLINE') {
+                dxf += this.splineToString(entity);
             }
         });
 
@@ -973,6 +1008,45 @@ ENDSEC
 
         polyline.points.forEach(point => {
             dxf += `${gc(10)}${nl}${point.x.toFixed(6)}${nl}${gc(20)}${nl}${point.y.toFixed(6)}${nl}`;
+        });
+
+        return dxf;
+    }
+
+    splineToString(spline) {
+        const gc = (code) => this.gc(code);
+        const nl = this.endl();
+        const handle = this.nextHandle();
+
+        // SPLINE entity format matching ezdxf output
+        let dxf = `${gc(0)}${nl}SPLINE${nl}`;
+        dxf += `${gc(5)}${nl}${handle}${nl}`;
+        dxf += `${gc(330)}${nl}17${nl}`; // Owner handle (modelspace)
+        dxf += `${gc(100)}${nl}AcDbEntity${nl}`;
+        dxf += `${gc(8)}${nl}${spline.layer}${nl}`;
+        dxf += `${gc(62)}${nl}${spline.color}${nl}`;
+        dxf += `${gc(100)}${nl}AcDbSpline${nl}`;
+        dxf += `${gc(70)}${nl}${spline.closed ? 1 : 0}${nl}`; // Spline flags (0=open, 1=closed)
+        dxf += `${gc(71)}${nl}${spline.degree}${nl}`; // Degree
+        dxf += `${gc(72)}${nl}${spline.knots.length}${nl}`; // Number of knots
+        dxf += `${gc(73)}${nl}${spline.controlPoints.length}${nl}`; // Number of control points
+        dxf += `${gc(74)}${nl}0${nl}`; // Number of fit points (0 for interpolation)
+
+        // Write knot values
+        spline.knots.forEach(knot => {
+            dxf += `${gc(40)}${nl}${knot.toFixed(16)}${nl}`;
+        });
+
+        // Write control points
+        spline.controlPoints.forEach(cp => {
+            // verb-nurbs returns points as [x, y] or [x, y, z]
+            const x = Array.isArray(cp) ? cp[0] : cp.x;
+            const y = Array.isArray(cp) ? cp[1] : cp.y;
+            const z = Array.isArray(cp) && cp.length > 2 ? cp[2] : 0;
+
+            dxf += `${gc(10)}${nl}${x.toFixed(6)}${nl}`;
+            dxf += `${gc(20)}${nl}${y.toFixed(6)}${nl}`;
+            dxf += `${gc(30)}${nl}${z.toFixed(6)}${nl}`;
         });
 
         return dxf;
