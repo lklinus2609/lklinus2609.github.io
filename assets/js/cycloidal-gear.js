@@ -295,11 +295,13 @@ class CycloidalGearGenerator {
         const dxf = new DXFWriter();
 
         // Add Cycloidal Ring Gear as B-spline using verb-nurbs
-        // Generate points (without duplicate - verb handles closure)
         const cycloidPath = this.cycloidPoints(1000);
 
-        // Convert to verb format [[x, y], ...]
-        const points = cycloidPath.slice(0, -1).map(p => [p.x, p.y]); // Remove duplicate closing point
+        // Convert to verb format [[x, y], ...] and remove duplicate closing point
+        const points = cycloidPath.slice(0, -1).map(p => [p.x, p.y]);
+
+        // Add first point at the end to force closure (matches Python behavior)
+        points.push(points[0]);
 
         // Use verb-nurbs to create interpolated B-spline curve
         if (typeof verb !== 'undefined') {
