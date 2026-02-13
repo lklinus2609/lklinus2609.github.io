@@ -32,6 +32,24 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 
+	// ===== Mobile nav toggle =====
+	var navToggle = document.querySelector('.nav-toggle');
+	var navLinks = document.querySelector('.nav-links');
+	if (navToggle && navLinks) {
+		navToggle.addEventListener('click', function () {
+			navToggle.classList.toggle('open');
+			navLinks.classList.toggle('open');
+			document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+		});
+		navLinks.querySelectorAll('a').forEach(function (link) {
+			link.addEventListener('click', function () {
+				navToggle.classList.remove('open');
+				navLinks.classList.remove('open');
+				document.body.style.overflow = '';
+			});
+		});
+	}
+
 	// ===== Robot hand cursor on click =====
 	document.addEventListener('mousedown', function () {
 		document.body.classList.add('clicking');
