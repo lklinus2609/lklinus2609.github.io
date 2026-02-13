@@ -1,335 +1,300 @@
 <!DOCTYPE HTML>
 <html lang="en">
-	<head>
-		<title>Linus Kim | Robotics Engineer</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-		<meta http-equiv="Pragma" content="no-cache" />
-		<meta http-equiv="Expires" content="0" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-		<link rel="stylesheet" href="assets/css/custom.css?v=9" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<!-- Three.js for 3D model viewer -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
-	</head>
-	<body>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<head>
+	<title>Linus Kim | Robotics Engineer</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta name="description" content="Portfolio of Linus Kim, a Graduate Robotics Researcher at UT Austin specializing in humanoid robots, mechanical design, and control systems." />
+	<meta name="keywords" content="Linus Kim, Robotics Engineer, Humanoid Robots, UT Austin, Mechanical Design, ROS2, Control Systems" />
+	<meta name="author" content="Linus Kim" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://lklinus2609.github.io/" />
+	<meta property="og:title" content="Linus Kim | Robotics Engineer" />
+	<meta property="og:description" content="Graduate Robotics Researcher building and controlling humanoids at UT Austin." />
+	<meta property="og:image" content="images/draco_preview.webp" />
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="#intro">About</a></li>
-							<li><a href="#research">Research</a></li>
-							<li><a href="#projects">Projects</a></li>
-							<li><a href="tools.html">Tools</a></li>
-							<li><a href="#contact">Contact</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/linuskim2000/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-							<li><a href="https://github.com/lklinus2609" target="_blank"><i class="fab fa-github"></i></a></li>
-						</ul>
-					</nav>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+	<link rel="stylesheet" href="assets/css/custom.css?v=31" />
 
-				<!-- Main -->
-					<div id="main">
+	<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "Person",
+		  "name": "Linus Kim",
+		  "url": "https://lklinus2609.github.io/",
+		  "jobTitle": "Graduate Robotics Researcher",
+		  "affiliation": { "@type": "Organization", "name": "UT Austin Human Centered Robotics Lab" },
+		  "sameAs": ["https://www.linkedin.com/in/linuskim2000/", "https://github.com/lklinus2609"]
+		}
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
+</head>
 
-						<!-- Intro Section -->
-						<section id="intro" class="container">
-							<h2 class="section-title">Linus Kim | 김리노</h2>
-							<p style="text-align: center; margin-bottom: var(--space-10); font-size: 20px; line-height: 1.8;">
-								Graduate Robotics Researcher @ UT Austin Human Centered Robotics Lab
-								<br><br>
-								Building and controlling humanoids
-								<br><br>
-								I swim, dive, surf, play tennis, and explore. But my robot walks, hopefully cooks, or... idk do something.
-							</p>
-						</section>
+<body>
 
-						<!-- About Section -->
-						<section id="about" class="container">
-							<h2 class="section-title">About</h2>
-							<p style="text-align: center; margin: 0 auto var(--space-10); font-size: 20px; line-height: 1.8;">
-								If you didn't notice it from the name, I'm Korean.
-								<br><br>
-								I build humanoid robots at UT Austin's <strong>Human Centered Robotics Lab</strong> under Dr. Luis Sentis. Basically, I design hardware, write code, and pray it doesn't fall over.
-								<br><br>
-								<span style="font-size: 16px; color: var(--text-secondary); font-style: italic;">Click on cards to see photos (I forgot to take photos of some tho)</span>
-							</p>
-						</section>
+	<div class="scroll-progress" id="scroll-progress"></div>
 
-						<!-- Research Section -->
-						<section id="research" class="container">
-							<h2 class="section-title">Research</h2>
+	<!-- Nav -->
+	<nav id="nav">
+		<ul class="nav-links">
+			<li><a href="#about">About</a></li>
+			<li><a href="#research">Research</a></li>
+			<li><a href="#projects">Projects</a></li>
+			<li><a href="tools.html">Tools</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+		<ul class="nav-socials">
+			<li><a href="https://www.linkedin.com/in/linuskim2000/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+			<li><a href="https://github.com/lklinus2609" target="_blank"><i class="fab fa-github"></i></a></li>
+		</ul>
+	</nav>
 
-							<div class="card" style="margin-bottom: var(--space-8);">
-								<h3>DRACO 4: Next-Generation Humanoid</h3>
-								<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Human Centered Robotics Lab</strong></p>
-								<p style="margin-bottom: var(--space-5);">Development of a full-sized humanoid from the ground up. I'm doing everything—mechanical design, hardware integration, ROS2/EtherCAT communication stack, and RL-based morphology optimization in Isaac Lab.</p>
+	<!-- ==================== HERO ==================== -->
+	<section class="hero">
+		<div class="hero-glow"></div>
+		<div class="hero-inner">
+			<span class="hero-eyebrow" data-animate="1">Robotics Engineer</span>
+			<h1 class="hero-title" data-animate="2">Linus</h1>
+			<div class="hero-name-row" data-animate="3">
+				<span class="hero-title">Kim</span>
+				<span class="hero-rule"></span>
+				<span class="hero-kr">김리노</span>
+			</div>
+			<p class="hero-desc" data-animate="4">Graduate Researcher building and controlling humanoids<br>at UT Austin's Human Centered Robotics Lab</p>
+			<p class="hero-aside" data-animate="5">I swim, dive, surf, play tennis, and explore.<br>But my robot walks, hopefully cooks, or... idk do something.</p>
+		</div>
+		<a href="#about" class="scroll-cta" data-animate="6">
+			<span>Scroll</span>
+			<div class="scroll-line"></div>
+		</a>
+	</section>
 
-								<!-- 3D Model Viewer -->
-								<div id="draco-model-viewer" style="width: 100%; height: 500px; margin: var(--space-8) 0; border-radius: 20px; overflow: hidden; position: relative; background: linear-gradient(135deg, #F4F2EF 0%, #F9F7F4 100%);"></div>
-								<p style="text-align: center; font-size: 14px; color: var(--text-tertiary); font-style: italic; margin-top: -var(--space-6); margin-bottom: var(--space-6);">Click and drag to rotate, scroll to zoom</p>
+	<!-- ==================== MARQUEE ==================== -->
+	<div class="marquee">
+		<div class="marquee-track">
+			<span>SolidWorks</span><span class="marquee-sep">/</span>
+			<span>ROS2</span><span class="marquee-sep">/</span>
+			<span>Python</span><span class="marquee-sep">/</span>
+			<span>Isaac Lab</span><span class="marquee-sep">/</span>
+			<span>MATLAB</span><span class="marquee-sep">/</span>
+			<span>EtherCAT</span><span class="marquee-sep">/</span>
+			<span>FEA</span><span class="marquee-sep">/</span>
+			<span>OpenCV</span><span class="marquee-sep">/</span>
+			<span>Mechanism Design</span><span class="marquee-sep">/</span>
+			<span>Reinforcement Learning</span><span class="marquee-sep">/</span>
+			<span>CNC</span><span class="marquee-sep">/</span>
+			<span>Raspberry Pi</span><span class="marquee-sep">/</span>
+			<span>SolidWorks</span><span class="marquee-sep">/</span>
+			<span>ROS2</span><span class="marquee-sep">/</span>
+			<span>Python</span><span class="marquee-sep">/</span>
+			<span>Isaac Lab</span><span class="marquee-sep">/</span>
+			<span>MATLAB</span><span class="marquee-sep">/</span>
+			<span>EtherCAT</span><span class="marquee-sep">/</span>
+			<span>FEA</span><span class="marquee-sep">/</span>
+			<span>OpenCV</span><span class="marquee-sep">/</span>
+			<span>Mechanism Design</span><span class="marquee-sep">/</span>
+			<span>Reinforcement Learning</span><span class="marquee-sep">/</span>
+			<span>CNC</span><span class="marquee-sep">/</span>
+			<span>Raspberry Pi</span><span class="marquee-sep">/</span>
+		</div>
+	</div>
 
-								<div class="mt-md">
-									<span class="tag">RL</span>
-									<span class="tag">Isaac Lab</span>
-									<span class="tag">ROS2</span>
-									<span class="tag">EtherCAT</span>
-									<span class="tag">SolidWorks</span>
-								</div>
-							</div>
+	<!-- ==================== ABOUT ==================== -->
+	<section id="about" class="sect">
+		<div class="container">
+			<div class="split" data-reveal>
+				<div class="split-left">
+					<span class="sect-num">01</span>
+					<h2 class="sect-title">About</h2>
+				</div>
+				<div class="split-right">
+					<p class="body-lg">If you didn't notice it from the name, I'm Korean.</p>
+					<p class="body-lg">I build humanoid robots at UT Austin's <strong>Human Centered Robotics Lab</strong> under Dr. Luis Sentis. Basically, I design hardware, write code, and pray it doesn't fall over.</p>
+					<p class="hint"><i class="far fa-hand-pointer"></i> Hover over cards to reveal photos</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
-							<div class="grid grid-2">
-								<div class="card-flip">
-									<div class="card">
-										<div class="card-front">
-											<h3>BreathIQ</h3>
-											<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Hutter Research Group</strong></p>
-											<p>Multi-sensor respiratory monitoring device for COPD patients. Ran PCA on 50+ patient datasets and built a Python UI for real-time data collection.</p>
-											<div class="mt-md">
-												<span class="tag">Medical Device</span>
-												<span class="tag">PCA</span>
-												<span class="tag">Python</span>
-											</div>
-										</div>
-										<div class="card-back">
-											<img src="images/BIQ_poster.png" alt="BreathIQ">
-										</div>
-									</div>
-								</div>
-								<div class="card-flip">
-									<div class="card">
-										<div class="card-front">
-											<h3>NeuFinger</h3>
-											<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Rehabilitation and Neuromuscular Robotics Lab</strong></p>
-											<p>Cable-driven robotic finger platform for sensorless force estimation research. Built a 4 DOF system and designed the tensioner mechanisms.</p>
-											<div class="mt-md">
-												<span class="tag">Cable Actuation</span>
-												<span class="tag">Force Estimation</span>
-											</div>
-										</div>
-										<div class="card-back">
-											<img src="images/nufinger2.jpg" alt="NeuFinger">
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
+	<!-- ==================== RESEARCH ==================== -->
+	<section id="research" class="sect">
+		<div class="container">
+			<div class="sect-header" data-reveal>
+				<span class="sect-num">02</span>
+				<h2 class="sect-title">Research</h2>
+			</div>
+		</div>
 
-						<!-- Projects Section -->
-						<section id="projects" class="container">
-							<h2 class="section-title">Projects</h2>
-							<div class="grid grid-2">
-								<div class="card">
-									<h3>Basketball Robot</h3>
-									<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Course Project</strong></p>
-									<p>Built an 8-bar linkage pick-and-place mechanism to handle basketballs. Used Newton-Raphson for the kinematic analysis and designed a custom end effector.</p>
-									<div class="mt-md">
-										<span class="tag">Raspberry Pi</span>
-										<span class="tag">Python</span>
-										<span class="tag">Mechanism Design</span>
-									</div>
-								</div>
-								<div class="card">
-									<h3>Vision-Based Multi-Agent Control</h3>
-									<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Course Project</strong></p>
-									<p>Built a real-time eye tracking system using OpenCV and Dlib with an SVM classifier to control multiple robots.</p>
-									<div class="mt-md">
-										<span class="tag">OpenCV</span>
-										<span class="tag">Dlib</span>
-										<span class="tag">Python</span>
-									</div>
-								</div>
-								<div class="card-flip">
-									<div class="card">
-										<div class="card-front">
-											<h3>BattleBot</h3>
-											<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Course Project</strong></p>
-											<p>Designed and built a battle robot. Validated the design with FEA and iterated through prototypes until it stopped breaking.</p>
-											<div class="mt-md">
-												<span class="tag">FEA</span>
-												<span class="tag">SolidWorks</span>
-												<span class="tag">CNC</span>
-											</div>
-										</div>
-										<div class="card-back">
-											<img src="images/battlebot2.png" alt="BattleBot">
-										</div>
-									</div>
-								</div>
-								<div class="card-flip">
-									<div class="card">
-										<div class="card-front">
-											<h3>Cookie Dipper</h3>
-											<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Course Project</strong></p>
-											<p>Built an 8-bar mechanism to pick Oreos, dip them in milk, and serve without getting your hands dirty. Demoed it at a live event with 100+ people.</p>
-											<div class="mt-md">
-												<span class="tag">MATLAB</span>
-												<span class="tag">Python</span>
-											</div>
-										</div>
-										<div class="card-back">
-											<img src="images/Dipper2.png" alt="Cookie Dipper">
-										</div>
-									</div>
-								</div>
-								<div class="card-flip">
-									<div class="card">
-										<div class="card-front">
-											<h3>Racecar</h3>
-											<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Project</strong></p>
-											<p>Built a remote-controlled racing vehicle and drove it around a track.</p>
-											<div class="mt-md">
-												<span class="tag">Electronics</span>
-												<span class="tag">Mechanical Design</span>
-											</div>
-										</div>
-										<div class="card-back">
-											<img src="images/RC1.jpg" alt="Racecar" style="object-position: center 85%; transform: scale(0.8);">
-										</div>
-									</div>
-								</div>
-								<div class="card-flip">
-									<div class="card">
-										<div class="card-front">
-											<h3>Portable Wearable AED</h3>
-											<p style="color: var(--text-tertiary); margin-bottom: var(--space-4);"><strong>Design Project</strong></p>
-											<p>Designed a 2-piece portable AED that lifeguards can wear as a wristwatch for rapid deployment in emergencies.</p>
-											<div class="mt-md">
-												<span class="tag">Medical Device</span>
-												<span class="tag">Wearable</span>
-												<span class="tag">SolidWorks</span>
-											</div>
-										</div>
-										<div class="card-back">
-											<img src="images/AED.png" alt="Portable AED">
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-
-						<!-- Contact Section -->
-						<section id="contact" class="container">
-							<h2 class="section-title">Contact</h2>
-							<div style="max-width: 600px; margin: 0 auto; text-align: center;">
-								<div style="display: flex; flex-direction: column; gap: var(--space-4); align-items: center;">
-									<p><strong>Email:</strong> <a href="mailto:lkim23@utexas.edu" class="copy-email" data-email="lkim23@utexas.edu">lkim23@utexas.edu</a> | <a href="mailto:lklinus0926@gmail.com" class="copy-email" data-email="lklinus0926@gmail.com">lklinus0926@gmail.com</a></p>
-									<p><strong>Phone:</strong> (512) 299-8254</p>
-									<div style="display: flex; gap: var(--space-6); margin-top: var(--space-4);">
-										<a href="https://www.linkedin.com/in/linuskim2000/" target="_blank" style="font-size: 28px; color: var(--text-primary);"><i class="fab fa-linkedin"></i></a>
-										<a href="https://github.com/lklinus2609" target="_blank" style="font-size: 28px; color: var(--text-primary);"><i class="fab fa-github"></i></a>
-									</div>
-								</div>
-							</div>
-						</section>
-
+		<!-- DRACO 4 Showcase -->
+		<div class="showcase" data-reveal>
+			<div class="container">
+				<div class="showcase-head">
+					<h3 class="showcase-name">DRACO 4</h3>
+					<span class="showcase-sub">Next-Generation Humanoid &mdash; Human Centered Robotics Lab</span>
+				</div>
+			</div>
+			<div class="showcase-viewer-wrap">
+				<div id="draco-model-viewer" class="showcase-viewer"></div>
+			</div>
+			<div class="container">
+				<p class="showcase-instruction">Click and drag to rotate &middot; Scroll to zoom</p>
+				<div class="showcase-body">
+					<p>Development of a full-sized humanoid from the ground up. I'm doing everything&mdash;mechanical design, hardware integration, ROS2/EtherCAT communication stack, and RL-based morphology optimization in Isaac Lab.</p>
+					<div class="tag-row">
+						<span class="tag">RL</span>
+						<span class="tag">Isaac Lab</span>
+						<span class="tag">ROS2</span>
+						<span class="tag">EtherCAT</span>
+						<span class="tag">SolidWorks</span>
 					</div>
+				</div>
+			</div>
+		</div>
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<p>&copy; 2025 Linus Kim. All Rights Reserved. Built with Caffeine.</p>
+		<!-- Other Research -->
+		<div class="container" style="margin-top: 64px;">
+			<div class="grid-half" data-reveal-group>
+				<div class="card card-hover" data-reveal>
+					<div class="card-bg"><img src="images/BIQ_poster.webp" alt="BreathIQ" loading="lazy"></div>
+					<div class="card-content">
+						<h3>BreathIQ</h3>
+						<p class="card-meta">Hutter Research Group</p>
+						<p>Multi-sensor respiratory monitoring device for COPD patients. Ran PCA on 50+ patient datasets and built a Python UI for real-time data collection.</p>
+						<div class="tag-row"><span class="tag">Medical Device</span><span class="tag">PCA</span><span class="tag">Python</span></div>
 					</div>
+				</div>
+				<div class="card card-hover" data-reveal>
+					<div class="card-bg"><img src="images/nufinger2.webp" alt="NeuFinger" loading="lazy"></div>
+					<div class="card-content">
+						<h3>NeuFinger</h3>
+						<p class="card-meta">Rehabilitation and Neuromuscular Robotics Lab</p>
+						<p>Cable-driven robotic finger platform for sensorless force estimation research. Built a 4 DOF system and designed the tensioner mechanisms.</p>
+						<div class="tag-row"><span class="tag">Cable Actuation</span><span class="tag">Force Estimation</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
+	<!-- ==================== PROJECTS ==================== -->
+	<section id="projects" class="sect">
+		<div class="container">
+			<div class="sect-header" data-reveal>
+				<span class="sect-num">03</span>
+				<h2 class="sect-title">Projects</h2>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/model-viewer.js"></script>
+			<div class="mosaic" data-reveal-group>
+				<!-- BattleBot — visual card, wide -->
+				<div class="card card-visual mosaic-wide" data-reveal>
+					<img src="images/battlebot2.webp" alt="BattleBot" loading="lazy">
+					<div class="card-overlay">
+						<h3>BattleBot</h3>
+						<p class="card-meta">Course Project</p>
+						<p>Designed and built a battle robot. Validated the design with FEA and iterated through prototypes until it stopped breaking.</p>
+						<div class="tag-row"><span class="tag">FEA</span><span class="tag">SolidWorks</span><span class="tag">CNC</span></div>
+					</div>
+				</div>
 
-			<!-- Force scroll to top on page load/refresh -->
-			<script>
-				// Prevent browser from restoring scroll position
-				if ('scrollRestoration' in history) {
-					history.scrollRestoration = 'manual';
-				}
+				<!-- Basketball Robot — text card -->
+				<div class="card" data-reveal>
+					<h3>Basketball Robot</h3>
+					<p class="card-meta">Course Project</p>
+					<p>Built an 8-bar linkage pick-and-place mechanism to handle basketballs. Used Newton-Raphson for the kinematic analysis and designed a custom end effector.</p>
+					<div class="tag-row"><span class="tag">Raspberry Pi</span><span class="tag">Python</span><span class="tag">Mechanism Design</span></div>
+				</div>
 
-				// Force scroll to top immediately
-				window.addEventListener('beforeunload', function() {
-					window.scrollTo(0, 0);
-				});
+				<!-- Vision — text card -->
+				<div class="card" data-reveal>
+					<h3>Vision-Based Multi-Agent Control</h3>
+					<p class="card-meta">Course Project</p>
+					<p>Built a real-time eye tracking system using OpenCV and Dlib with an SVM classifier to control multiple robots.</p>
+					<div class="tag-row"><span class="tag">OpenCV</span><span class="tag">Dlib</span><span class="tag">Python</span></div>
+				</div>
 
-				// Also force on load
-				window.addEventListener('load', function() {
-					setTimeout(function() {
-						window.scrollTo(0, 0);
-					}, 0);
-				});
+				<!-- Cookie Dipper — hover image card -->
+				<div class="card card-hover" data-reveal>
+					<div class="card-bg"><img src="images/Dipper2.webp" alt="Cookie Dipper" loading="lazy"></div>
+					<div class="card-content">
+						<h3>Cookie Dipper</h3>
+						<p class="card-meta">Course Project</p>
+						<p>Built an 8-bar mechanism to pick Oreos, dip them in milk, and serve without getting your hands dirty. Demoed it at a live event with 100+ people.</p>
+						<div class="tag-row"><span class="tag">MATLAB</span><span class="tag">Python</span></div>
+					</div>
+				</div>
 
-				// Card flip functionality
-				document.addEventListener('DOMContentLoaded', function() {
-					const flipCards = document.querySelectorAll('.card-flip');
-					flipCards.forEach(function(card) {
-						card.addEventListener('click', function() {
-							this.classList.toggle('flipped');
-						});
-					});
+				<!-- Racecar — hover image card -->
+				<div class="card card-hover" data-reveal>
+					<div class="card-bg"><img src="images/RC1.webp" alt="Racecar" loading="lazy" style="object-position: center 85%;"></div>
+					<div class="card-content">
+						<h3>Racecar</h3>
+						<p class="card-meta">Project</p>
+						<p>Built a remote-controlled racing vehicle and drove it around a track.</p>
+						<div class="tag-row"><span class="tag">Electronics</span><span class="tag">Mechanical Design</span></div>
+					</div>
+				</div>
 
-					// Email copy functionality with toast notification
-					const copyEmailLinks = document.querySelectorAll('.copy-email');
-					copyEmailLinks.forEach(function(link) {
-						link.addEventListener('click', function(e) {
-							e.preventDefault();
-							const email = this.getAttribute('data-email');
-							navigator.clipboard.writeText(email).then(function() {
-								// Create toast notification
-								const toast = document.createElement('div');
-								toast.textContent = 'Email copied!';
-								toast.style.cssText = 'position: fixed; bottom: 20px; right: 20px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-primary); padding: 12px 24px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); z-index: 10000; animation: slideIn 0.3s ease;';
-								document.body.appendChild(toast);
+				<!-- AED — visual card, full width -->
+				<div class="card card-visual mosaic-full" data-reveal>
+					<img src="images/AED.webp" alt="Portable AED" loading="lazy">
+					<div class="card-overlay">
+						<h3>Portable Wearable AED</h3>
+						<p class="card-meta">Design Project</p>
+						<p>Designed a 2-piece portable AED that lifeguards can wear as a wristwatch for rapid deployment in emergencies.</p>
+						<div class="tag-row"><span class="tag">Medical Device</span><span class="tag">Wearable</span><span class="tag">SolidWorks</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-								// Remove toast after 2 seconds
-								setTimeout(function() {
-									toast.style.animation = 'slideOut 0.3s ease';
-									setTimeout(function() {
-										document.body.removeChild(toast);
-									}, 300);
-								}, 2000);
-							});
-						});
-					});
-				});
+	<!-- ==================== CONTACT ==================== -->
+	<section id="contact" class="sect sect-contact">
+		<div class="container">
+			<div data-reveal>
+				<span class="sect-num">04</span>
+				<h2 class="contact-heading">Let's build<br>something.</h2>
+			</div>
+			<div class="contact-grid" data-reveal>
+				<div class="contact-col">
+					<span class="contact-label">Email</span>
+					<a href="mailto:lkim23@utexas.edu" class="contact-link copy-email" data-email="lkim23@utexas.edu">lkim23@utexas.edu</a>
+					<a href="mailto:lklinus0926@gmail.com" class="contact-link copy-email" data-email="lklinus0926@gmail.com">lklinus0926@gmail.com</a>
+				</div>
+				<div class="contact-col">
+					<span class="contact-label">Phone</span>
+					<span class="contact-link">(512) 299-8254</span>
+				</div>
+				<div class="contact-col">
+					<span class="contact-label">Social</span>
+					<div class="contact-socials">
+						<a href="https://www.linkedin.com/in/linuskim2000/" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+						<a href="https://github.com/lklinus2609" target="_blank" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-				// Add toast animations
-				const style = document.createElement('style');
-				style.textContent = `
-					@keyframes slideIn {
-						from { transform: translateX(400px); opacity: 0; }
-						to { transform: translateX(0); opacity: 1; }
-					}
-					@keyframes slideOut {
-						from { transform: translateX(0); opacity: 1; }
-						to { transform: translateX(400px); opacity: 0; }
-					}
-				`;
-				document.head.appendChild(style);
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<p>&copy; 2025 Linus Kim. Built with Caffeine.</p>
+		</div>
+	</footer>
 
-				// Robot hand grab animation on click
-				document.addEventListener('mousedown', function() {
-					document.body.classList.add('clicking');
-				});
-				document.addEventListener('mouseup', function() {
-					document.body.classList.remove('clicking');
-				});
+	<script src="assets/js/model-viewer.js"></script>
+	<script src="assets/js/main.js" defer></script>
 
-				// Initialize 3D Model Viewer for DRACO 4
-				window.addEventListener('load', function() {
-					if (typeof ModelViewer !== 'undefined') {
-						new ModelViewer('draco-model-viewer', 'assets/lowerbody_assembly/Assembly 1.obj', {
-							autoRotate: true,
-							autoRotateSpeed: 0.3,
-							backgroundColor: 0xF9F7F4,
-							enableZoom: true,
-							enablePan: false
-						});
-					}
-				});
-			</script>
-
-	</body>
+</body>
 </html>
