@@ -1,6 +1,6 @@
 /*
   LINUS KIM PORTFOLIO — DARK WARM LUXE
-  Champagne gold · Editorial layout · Staggered mosaic
+  Champagne gold · Velvet green · Editorial split layout
 */
 
 /* ==================== VARIABLES ==================== */
@@ -19,6 +19,10 @@
   --accent-bright: #DDBF8A;
   --accent-bg: rgba(200,169,110,0.06);
   --accent-glow: rgba(200,169,110,0.10);
+
+  --accent-2: #3B5249;
+  --accent-2-dim: #2D4038;
+  --accent-2-bg: rgba(59,82,73,0.12);
 
   --border: #1E1D1B;
   --border-2: #2E2C28;
@@ -142,6 +146,31 @@ a:hover { color: var(--accent-bright); }
   transition: color .2s, transform .2s;
 }
 .nav-socials a:hover { color:var(--accent); transform:translateY(-2px); }
+
+/* Hamburger toggle — hidden on desktop */
+.nav-toggle {
+  display:none;
+  flex-direction:column;
+  background:none; border:none;
+  width:24px; height:18px;
+  position:relative;
+  cursor:pointer;
+  z-index:2;
+  padding:0;
+}
+.nav-toggle span {
+  position:absolute; left:0;
+  width:100%; height:2px;
+  background:var(--text-1);
+  border-radius:1px;
+  transition:all .3s var(--ease);
+}
+.nav-toggle span:nth-child(1) { top:0; }
+.nav-toggle span:nth-child(2) { top:8px; }
+.nav-toggle span:nth-child(3) { top:16px; }
+.nav-toggle.open span:nth-child(1) { top:8px; transform:rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity:0; }
+.nav-toggle.open span:nth-child(3) { top:8px; transform:rotate(-45deg); }
 
 /* ==================== HERO ==================== */
 .hero {
@@ -278,8 +307,8 @@ a:hover { color: var(--accent-bright); }
   margin:0 auto;
   padding:0 clamp(24px, 4vw, 60px);
 }
-.sect { padding: clamp(80px,12vw,160px) 0; }
-.sect-contact { padding-bottom: clamp(60px,8vw,120px); }
+.sect { padding: clamp(48px,6vw,80px) 0; }
+.sect-contact { padding-bottom: clamp(40px,4vw,64px); }
 
 /* ==================== SECTION HEADERS ==================== */
 .sect-num {
@@ -381,74 +410,65 @@ a:hover { color: var(--accent-bright); }
 }
 .card p { font-size:15px; line-height:1.7; margin-bottom:8px; }
 
-/* ==================== VISUAL CARD (image is the card) ==================== */
-.card-visual {
-  overflow:hidden;
-  padding:0;
-  min-height:340px;
+/* ==================== PROJECT ROWS (Split Showcase) ==================== */
+.project-list {
   display:flex;
-  align-items:flex-end;
-  background:var(--surface);
+  flex-direction:column;
+  gap: clamp(48px, 8vw, 80px);
 }
-.card-visual:hover {
-  transform:translateY(-6px);
-  border-color:var(--border-accent);
-  box-shadow: var(--shadow-l), var(--shadow-glow);
+.project-row {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items:center;
 }
-.card-visual > img {
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  object-fit:cover;
-  z-index:0;
-  transition: transform .7s var(--ease);
-  filter: brightness(.35) saturate(.9);
-}
-.card-visual:hover > img {
-  transform:scale(1.04);
-  filter: brightness(.45) saturate(1);
-}
-.card-visual .card-overlay {
-  position:relative; z-index:2;
-  padding: clamp(24px,3vw,36px);
-  width:100%;
-  background: linear-gradient(to top,
-    rgba(13,12,11,.9) 0%,
-    rgba(13,12,11,.45) 55%,
-    transparent 100%
-  );
-}
-.card-visual .card-overlay h3 { font-size:22px; margin-bottom:6px; }
-.card-visual .card-overlay p { font-size:15px; line-height:1.7; margin-bottom:8px; }
-.mosaic-full.card-visual { min-height:260px; }
+.project-row:nth-child(even) .project-media { order:2; }
+.project-row:nth-child(even) .project-info { order:1; }
 
-/* ==================== HOVER IMAGE CARD (image bleeds on hover) ==================== */
-.card-hover {
+.project-media {
+  border-radius:var(--r-lg);
   overflow:hidden;
+  aspect-ratio:4/3;
+  position:relative;
+  background:var(--surface);
+  border:1px solid var(--border);
 }
-.card-hover .card-bg {
-  position:absolute; inset:0;
-  z-index:0;
-  opacity:0;
-  transition: opacity .5s var(--ease);
-  pointer-events:none;
-}
-.card-hover .card-bg img {
+.project-media img {
   width:100%; height:100%;
   object-fit:cover;
-  filter: brightness(.3) saturate(.8);
+  transition: transform .7s var(--ease), filter .5s;
+  filter: brightness(.85) saturate(.95);
 }
-.card-hover .card-bg::after {
-  content:'';
-  position:absolute; inset:0;
-  background: linear-gradient(to top,
-    #161514 0%,
-    rgba(22,21,20,.75) 50%,
-    rgba(22,21,20,.45) 100%
-  );
+.project-row:hover .project-media img {
+  transform:scale(1.03);
+  filter: brightness(1) saturate(1);
 }
-.card-hover:hover .card-bg { opacity:1; }
-.card-hover:hover { border-color: var(--border-accent); }
-.card-hover .card-content { position:relative; z-index:1; }
+.project-media--accent {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(135deg, var(--accent-2-bg), rgba(59,82,73,0.04));
+  border-color: rgba(59,82,73,0.18);
+}
+.project-index {
+  font-family:var(--font-d);
+  font-size: clamp(64px, 10vw, 120px);
+  font-weight:700;
+  color: var(--accent-2);
+  letter-spacing:-.05em;
+  opacity:.4;
+}
+.project-info h3 {
+  font-family:var(--font-d);
+  font-size: clamp(22px, 2.5vw, 28px);
+  letter-spacing:-.02em;
+  margin-bottom:6px;
+  color:var(--text-1);
+}
+.project-info p {
+  font-size:16px; line-height:1.75;
+  margin-bottom:8px;
+}
 
 /* ==================== TAGS ==================== */
 .tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:16px; }
@@ -467,22 +487,7 @@ a:hover { color: var(--accent-bright); }
   border-color:var(--accent);
 }
 
-/* ==================== GRIDS ==================== */
-.grid-half {
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap:20px;
-}
-
-/* ==================== MOSAIC (staggered project grid) ==================== */
-.mosaic {
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:20px;
-  align-items:start;
-}
-.mosaic-wide { grid-column: span 2; }
-.mosaic-full { grid-column: 1 / -1; }
+/* (grids removed — using split project rows instead) */
 
 /* ==================== CONTACT ==================== */
 .contact-heading {
@@ -572,9 +577,6 @@ a.contact-link:hover { color:var(--accent); }
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width:1024px) {
-  .mosaic { grid-template-columns:repeat(2,1fr); }
-  .mosaic-wide { grid-column:span 2; }
-  .mosaic-full { grid-column:1/-1; }
   .contact-grid { grid-template-columns:1fr 1fr; }
 }
 
@@ -589,24 +591,22 @@ a.contact-link:hover { color:var(--accent); }
   .split { grid-template-columns:1fr; gap:32px; }
   .split-left { position:static; }
 
-  .grid-half, .mosaic { grid-template-columns:1fr; }
-  .mosaic-wide, .mosaic-full { grid-column:auto; }
+  .project-row { grid-template-columns:1fr; gap:24px; }
+  .project-row:nth-child(even) .project-media,
+  .project-row:nth-child(even) .project-info { order:unset; }
+  .project-media { aspect-ratio:16/10; }
 
   .contact-grid { grid-template-columns:1fr; gap:28px; }
   .contact-heading { font-size:clamp(36px,10vw,60px); }
 
-  .sect { padding:clamp(60px,10vw,100px) 0; }
+  .sect { padding:clamp(40px,6vw,64px) 0; }
   .nav-socials { display:none; }
-
-  .card-visual { min-height:280px; }
-  .mosaic-full.card-visual { min-height:220px; }
 }
 
 @media (max-width:480px) {
   .hero-title { font-size:clamp(36px,16vw,52px); }
   .card { padding:20px; }
-  .sect { padding:56px 0; }
+  .sect { padding:36px 0; }
   .nav-links { gap:16px; }
   .nav-links a { font-size:10px; letter-spacing:.1em; }
-  .card-visual { min-height:240px; }
 }
