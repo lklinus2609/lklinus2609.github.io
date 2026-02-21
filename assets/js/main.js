@@ -13,9 +13,18 @@ window.addEventListener('beforeunload', function () {
 });
 
 window.addEventListener('load', function () {
-	setTimeout(function () {
-		window.scrollTo(0, 0);
-	}, 0);
+	if (window.location.hash) {
+		var target = document.querySelector(window.location.hash);
+		if (target) {
+			setTimeout(function () {
+				target.scrollIntoView({ behavior: 'smooth' });
+			}, 50);
+		}
+	} else {
+		setTimeout(function () {
+			window.scrollTo(0, 0);
+		}, 0);
+	}
 });
 
 document.addEventListener('DOMContentLoaded', function () {
